@@ -1,0 +1,7 @@
+{% load i18n %}
+{% load staticfiles %}
+
+<div class="col-sm-7 h1 brand">
+    <img src="{% static 'img/baggy-soap-logo-75.png' %}" alt="Baggy Soap Logo">
+    <a href="{{ homepage_url }}">{% block brand_title %}{{ shop_name }}</a><small> {{ shop_tagline }}</small>{% endblock %}
+</div>
