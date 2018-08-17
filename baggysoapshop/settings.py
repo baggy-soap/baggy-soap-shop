@@ -64,7 +64,7 @@ SECRET_KEY = '(s1gx&d3d+(&c)cyq&4j0m(3m8+ph)4!c+*umf!)4y0-w@bjdn'
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'baggy-soap-shop.herokuapp.com/',
+    'baggy-soap-shop.herokuapp.com',
     'localhost',
 ]
 
