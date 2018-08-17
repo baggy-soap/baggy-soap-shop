@@ -1,1 +1,1 @@
-web: gunicorn baggysoap.wsgi --log-file -
+web: gunicorn baggysoapshop.wsgi --log-file -
