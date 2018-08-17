@@ -63,7 +63,10 @@ SECRET_KEY = '(s1gx&d3d+(&c)cyq&4j0m(3m8+ph)4!c+*umf!)4y0-w@bjdn'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'baggy-soap-shop.herokuapp.com/',
+    'localhost',
+]
 
 
 # Application definition
