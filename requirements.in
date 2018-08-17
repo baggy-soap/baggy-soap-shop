@@ -12,6 +12,7 @@ django-treebeard
 django-widget-tweaks
 factory-boy
 Faker
+gunicorn
 mock
 pbr
 phonenumbers
