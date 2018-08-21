@@ -30,4 +30,4 @@ six
 sorl-thumbnail
 text-unidecode
 Unidecode
-
+whitenoise

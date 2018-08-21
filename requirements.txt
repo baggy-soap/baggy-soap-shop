@@ -38,3 +38,4 @@ six==1.11.0
 sorl-thumbnail==12.4.1
 text-unidecode==1.2
 unidecode==1.0.22
+whitenoise==4.0
