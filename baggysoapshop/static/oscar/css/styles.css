@@ -9063,13 +9063,13 @@ input[type="number"][id*="quantity"] {
 .footer .btn {
   border-width: 2px;
   color: #fff;
+  padding: 7px;
 }
 
 .btn-social {
-  width: 3.25rem;
-  height: 3.25rem;
-  font-size: 1.25rem;
-  line-height: 2rem;
+  width: 5rem;
+  height: 5rem;
+  font-size: 2rem;
 }
 
 .btn-outline-light {
