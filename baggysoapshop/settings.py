@@ -58,10 +58,12 @@ PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '(s1gx&d3d+(&c)cyq&4j0m(3m8+ph)4!c+*umf!)4y0-w@bjdn'
+# SECRET_KEY = '(s1gx&d3d+(&c)cyq&4j0m(3m8+ph)4!c+*umf!)4y0-w@bjdn'
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'z6sg9_o80w8avstqz!x-b+7%*2c=(38z-i_59r19u&jv)(_gz0')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# DEBUG = True
+DEBUG = bool(os.environ.get('DJANGO_DEBUG', True))
 
 ALLOWED_HOSTS = [
     'baggy-soap-shop.herokuapp.com',

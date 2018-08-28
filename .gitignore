@@ -12,3 +12,6 @@ db.sqlite3
 
 # Text backup files
 *.bak
+
+# Media files will be served from Amazon S3 on Heroku
+/baggysoapshop/media/
