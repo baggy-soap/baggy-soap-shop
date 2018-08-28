@@ -65,6 +65,8 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'z6sg9_o80w8avstqz!x-b+7%*2c=(3
 # DEBUG = True
 DEBUG = bool(os.environ.get('DJANGO_DEBUG', True))
 
+ENVIRONMENT = os.environ.get('ENVIRONMENT', 'development')
+
 ALLOWED_HOSTS = [
     'baggy-soap-shop.herokuapp.com',
     'localhost',
@@ -212,9 +214,9 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
 # AWS Settings
-AWS_ACCESS_KEY_ID = os.environ.get("AWS_ACCESS_KEY_ID", "")
-AWS_SECRET_ACCESS_KEY = os.environ.get("AWS_SECRET_ACCESS_KEY", "")
-AWS_STORAGE_BUCKET_NAME = os.environ.get("AWS_STORAGE_BUCKET_NAME", "")
+AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID', '')
+AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY', '')
+AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_STORAGE_BUCKET_NAME', '')
 
 # If False it will create unique file names for every uploaded file
 AWS_S3_FILE_OVERWRITE = True
@@ -226,7 +228,7 @@ MEDIAFILES_LOCATION = 'media'
 
 MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'media')
 
-if DEBUG:
+if ENVIRONMENT == 'development':
     MEDIA_URL = '/media/'
 else:
     DEFAULT_FILE_STORAGE = 'baggysoapshop.storage_backends.MediaStorage'
