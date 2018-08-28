@@ -1,4 +1,6 @@
 django<2.1
+
+boto3
 Babel
 dj-database-url
 django-appconf
@@ -7,6 +9,7 @@ django-extra-views
 django-haystack
 django-oscar
 django-phonenumber-field
+django-storages
 django-tables2
 django-treebeard
 django-widget-tweaks
