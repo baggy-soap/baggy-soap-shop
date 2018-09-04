@@ -18,12 +18,19 @@ from django.contrib import admin
 from django.urls import include, path
 from oscar.app import application
 
+# from paypal.express.dashboard.app import application as paypal_application
+
 urlpatterns = [
     # The Django admin is not officially supported; expect breakage.
     # Nonetheless, it's often useful for debugging.
     path('admin/', admin.site.urls),
 
     path('i18n/', include('django.conf.urls.i18n')),
+    path('checkout/paypal/', include('paypal.express.urls')),
+
+    # TODO: Understand whether we need this and remove if not
+    # # Optional
+    # path('dashboard/paypal/express/', paypal_application.urls),
     path('', application.urls),
 ]
 

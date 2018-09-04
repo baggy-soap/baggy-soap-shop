@@ -7,12 +7,16 @@
 babel==2.6.0
 boto3==1.8.3
 botocore==1.11.3          # via boto3, s3transfer
+certifi==2018.8.24        # via requests
+chardet==3.0.4            # via requests
 click==6.7                # via pip-tools
 dj-database-url==0.5.0
 django-appconf==1.0.2
 django-compressor==2.2
 django-extra-views==0.11.0
 django-haystack==2.8.1
+django-localflavor==2.1   # via django-oscar-paypal
+django-oscar-paypal==1.0.0
 django-oscar==1.6.4
 django-phonenumber-field==2.0.0
 django-storages==1.6.6
@@ -25,6 +29,7 @@ factory-boy==2.11.1
 faker==0.9.0
 first==2.0.1              # via pip-tools
 gunicorn==19.9.0
+idna==2.7                 # via requests
 jmespath==0.9.3           # via boto3, botocore
 mock==2.0.0
 pbr==4.2.0
@@ -38,11 +43,12 @@ pycountry==18.5.26
 python-dateutil==2.7.3
 pytz==2018.5
 rcssmin==1.0.6
+requests==2.19.1          # via django-oscar-paypal
 rjsmin==1.0.12
 s3transfer==0.1.13        # via boto3
 six==1.11.0
 sorl-thumbnail==12.4.1
 text-unidecode==1.2
 unidecode==1.0.22
-urllib3==1.23             # via botocore
+urllib3==1.23             # via botocore, requests
 whitenoise==4.0

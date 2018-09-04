@@ -1,0 +1,8 @@
+{% extends 'oscar/checkout/payment_details.html' %}
+{% load i18n %}
+
+{% block payment_details_content %}
+    {% if anon_checkout_allowed or request.user.is_authenticated %}
+        <a href="{% url 'paypal-direct-payment' %}"><img src="https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif" style="margin-right:7px;"></a>
+    {% endif %}
+{% endblock payment_details_content %}

@@ -88,6 +88,7 @@ INSTALLED_APPS = [
     'compressor',
     'widget_tweaks',
     'storages',
+    'paypal',
 ] + get_core_apps()
 
 SITE_ID = 1
@@ -244,3 +245,15 @@ OSCAR_ORDER_STATUS_PIPELINE = {
 }
 
 OSCAR_SHOP_NAME = 'The Baggy Soap Company'
+
+PAYPAL_API_USERNAME = os.environ.get('PAYPAL_API_USERNAME', '')
+PAYPAL_API_PASSWORD = os.environ.get('PAYPAL_API_PASSWORD', '')
+PAYPAL_API_SIGNATURE = os.environ.get('PAYPAL_API_SIGNATURE', '')
+
+PAYPAL_SANDBOX_MODE = os.environ.get('PAYPAL_SANDBOX_MODE', True)
+
+# TODO: Don't think this setting is working as I expect it to
+PAYPAL_CALLBACK_HTTPS = os.environ.get('PAYPAL_CALLBACK_HTTPS', True)
+
+# TODO: Fix this properly
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

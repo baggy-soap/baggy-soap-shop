@@ -8,6 +8,7 @@ django-compressor
 django-extra-views
 django-haystack
 django-oscar
+django-oscar-paypal
 django-phonenumber-field
 django-storages
 django-tables2
