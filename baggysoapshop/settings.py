@@ -63,7 +63,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'z6sg9_o80w8avstqz!x-b+7%*2c=(3
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True
-DEBUG = bool(os.environ.get('DJANGO_DEBUG', True))
+DEBUG = bool_env('DJANGO_DEBUG', True)
 
 ENVIRONMENT = os.environ.get('ENVIRONMENT', 'development')
 
@@ -250,10 +250,8 @@ PAYPAL_API_USERNAME = os.environ.get('PAYPAL_API_USERNAME', '')
 PAYPAL_API_PASSWORD = os.environ.get('PAYPAL_API_PASSWORD', '')
 PAYPAL_API_SIGNATURE = os.environ.get('PAYPAL_API_SIGNATURE', '')
 
-PAYPAL_SANDBOX_MODE = os.environ.get('PAYPAL_SANDBOX_MODE', True)
-
-# TODO: Don't think this setting is working as I expect it to
-PAYPAL_CALLBACK_HTTPS = os.environ.get('PAYPAL_CALLBACK_HTTPS', True)
+PAYPAL_SANDBOX_MODE = bool_env('PAYPAL_SANDBOX_MODE', True)
+PAYPAL_CALLBACK_HTTPS = bool_env('PAYPAL_CALLBACK_HTTPS', True)
 
 # TODO: Fix this properly
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
