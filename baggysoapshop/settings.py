@@ -89,7 +89,9 @@ INSTALLED_APPS = [
     'widget_tweaks',
     'storages',
     'paypal',
-] + get_core_apps()
+] + get_core_apps([
+    'shipping'
+])
 
 SITE_ID = 1
 
