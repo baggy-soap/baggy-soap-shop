@@ -241,12 +241,13 @@ else:
 OSCAR_INITIAL_ORDER_STATUS = 'Pending'
 OSCAR_INITIAL_LINE_STATUS = 'Pending'
 OSCAR_ORDER_STATUS_PIPELINE = {
-    'Pending': ('Being processed', 'Cancelled',),
-    'Being processed': ('Processed', 'Cancelled',),
+    'Pending': ('Packaged', 'Cancelled',),
+    'Packaged': ('Dispatched', 'Cancelled',),
     'Cancelled': (),
 }
 
 OSCAR_SHOP_NAME = 'The Baggy Soap Company'
+OSCAR_FROM_EMAIL = 'noreply@baggysoap.co.uk'
 
 PAYPAL_API_USERNAME = os.environ.get('PAYPAL_API_USERNAME', '')
 PAYPAL_API_PASSWORD = os.environ.get('PAYPAL_API_PASSWORD', '')
@@ -255,5 +256,8 @@ PAYPAL_API_SIGNATURE = os.environ.get('PAYPAL_API_SIGNATURE', '')
 PAYPAL_SANDBOX_MODE = bool_env('PAYPAL_SANDBOX_MODE', True)
 PAYPAL_CALLBACK_HTTPS = bool_env('PAYPAL_CALLBACK_HTTPS', True)
 
-# TODO: Fix this properly
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_HOST = 'smtp.mailgun.org'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER', '')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD', '')
+EMAIL_USE_TLS = True
