@@ -1,0 +1,891 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>The Baggy Soap Company</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="{% static 'vendor/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- Plugin CSS -->
+    <link href="{% static 'vendor/magnific-popup/magnific-popup.css' %}" rel="stylesheet" type="text/css">
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/freelancer.css' %}" rel="stylesheet">
+    
+    <!-- Favicon links -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'favicon/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon/favicon-16x16.png' %}">
+    <link rel="manifest" href="{% static 'favicon/site.webmanifest' %}">
+    <link rel="mask-icon" href="{% static 'favicon/safari-pinned-tab.svg' %}" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#00aba9">
+    <meta name="theme-color" content="#ffffff">
+
+  </head>
+
+  <body id="page-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg bg-secondary fixed-top" id="mainNav">
+      <div class="container">
+        <img class="navbar-brand js-scroll-trigger navbar-logo" src="{% static 'img/baggy-soap-logo-75.png' %}" alt="Baggy Soap Logo">
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">The Baggy Soap Company</a>
+        <button class="navbar-toggler navbar-toggler-right text-uppercase bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          Menu
+          <i class="fa fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item mx-0 mx-lg-1">
+              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#products">Products</a>
+            </li>
+            <li class="nav-item mx-0 mx-lg-1">
+              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#benefits">Benefits</a>
+            </li>
+            <li class="nav-item mx-0 mx-lg-1">
+              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#faq">FAQ</a>
+            </li>
+            <li class="nav-item mx-0 mx-lg-1">
+              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about">About</a>
+            </li>
+            <li class="nav-item mx-0 mx-lg-1">
+              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="masthead bg-primary text-white text-center">
+      <div class="container">
+        <img class="img-fluid mb-5 d-block mx-auto" src="{% static 'img/baggy-soap-profile.png' %}" alt="Baggy Soaps">
+        <h1 class="mb-0">baggy soap</h1>
+        <hr class="star-light text-center">
+        <h2 class="font-weight-light mb-0">Cotton Bag - Handmade Soap - Zero Plastic</h2>
+      </div>
+    </header>
+
+    <!-- Portfolio Grid Section -->
+    <section class="portfolio text-secondary" id="products">
+      <div class="container">
+        <h2 class="text-center text-secondary mb-0">Products</h2>
+        <hr class="star-dark text-center mb-5">
+
+        <div class="row">
+          <div class="col-lg-4 ml-auto text-justify">
+            <p class="lead">Baggy Soap is a product borne out of a love for the environment and a desire to rid the
+            planet of plastic waste. There is so much focus on carrier bags, disposable cups and straws, yet so many
+            of us generate plastic waste every day in the bathroom, through using shower gel, hand wash and other
+            products in plastic bottles. We want to change that.</p>
+          </div>
+          <div class="col-lg-4 mr-auto text-justify">
+            <p class="lead">We have developed Baggy Soap to offer a superior cleaning experience, leaving both your
+            body and your conscience squeaky clean. Our cotton bags are 100% biodegradable and our handmade soaps have
+            been carefully chosen to work perfectly with our bags. We are committed to using no plastic and welcome
+            feedback from our customers.</p>
+          </div>
+        </div>
+
+        <hr class="star-dark text-center mb-5">
+
+        <div class="row">
+          <div class="col-md-6 col-lg-4">
+            <a class="portfolio-item d-block mx-auto" href="#portfolio-modal-1">
+              <div class="portfolio-item-caption d-flex position-absolute h-100 w-100">
+                <div class="portfolio-item-caption-content my-auto w-100 text-center text-white">
+                  <i class="fa fa-search-plus fa-3x"></i>
+                </div>
+              </div>
+              <img class="img-fluid" src="{% static 'img/products/baggy-soap-minty.png' %}" alt="">
+            </a>
+            <h6 class="text-secondary text-center">Morning Mint</h6>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <a class="portfolio-item d-block mx-auto" href="#portfolio-modal-2">
+              <div class="portfolio-item-caption d-flex position-absolute h-100 w-100">
+                <div class="portfolio-item-caption-content my-auto w-100 text-center text-white">
+                  <i class="fa fa-search-plus fa-3x"></i>
+                </div>
+              </div>
+              <img class="img-fluid" src="{% static 'img/products/baggy-soap-neroli.png' %}" alt="">
+            </a>
+            <h6 class="text-secondary text-center">Neroli & Sweet Orange</h6>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <a class="portfolio-item d-block mx-auto" href="#portfolio-modal-3">
+              <div class="portfolio-item-caption d-flex position-absolute h-100 w-100">
+                <div class="portfolio-item-caption-content my-auto w-100 text-center text-white">
+                  <i class="fa fa-search-plus fa-3x"></i>
+                </div>
+              </div>
+              <img class="img-fluid" src="{% static 'img/products/baggy-soap-baby_out-of-stock.png' %}" alt="">
+            </a>
+            <h6 class="text-secondary text-center">Natural Baby</h6>
+          </div>
+
+          <div class="col-md-6 col-lg-4">
+            <a class="portfolio-item d-block mx-auto" href="#portfolio-modal-4">
+              <div class="portfolio-item-caption d-flex position-absolute h-100 w-100">
+                <div class="portfolio-item-caption-content my-auto w-100 text-center text-white">
+                  <i class="fa fa-search-plus fa-3x"></i>
+                </div>
+              </div>
+              <img class="img-fluid" src="{% static 'img/products/baggy-soap-lavender.png' %}" alt="">
+            </a>
+            <h6 class="text-secondary text-center">Lavender</h6>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <a class="portfolio-item d-block mx-auto" href="#portfolio-modal-5">
+              <div class="portfolio-item-caption d-flex position-absolute h-100 w-100">
+                <div class="portfolio-item-caption-content my-auto w-100 text-center text-white">
+                  <i class="fa fa-search-plus fa-3x"></i>
+                </div>
+              </div>
+              <img class="img-fluid" src="{% static 'img/products/baggy-soap-tea-tree-turmeric.png' %}" alt="">
+            </a>
+            <h6 class="text-secondary text-center">Tea Tree & Turmeric</h6>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <a class="portfolio-item d-block mx-auto" href="#portfolio-modal-6">
+              <div class="portfolio-item-caption d-flex position-absolute h-100 w-100">
+                <div class="portfolio-item-caption-content my-auto w-100 text-center text-white">
+                  <i class="fa fa-search-plus fa-3x"></i>
+                </div>
+              </div>
+              <img class="img-fluid" src="{% static 'img/products/baggy-soap-guys.png' %}" alt="">
+            </a>
+            <h6 class="text-secondary text-center">Woodland Fresh</h6>
+          </div>
+
+          <div class="col-md-6 col-lg-4">
+            <a class="portfolio-item d-block mx-auto" href="#portfolio-modal-7">
+              <div class="portfolio-item-caption d-flex position-absolute h-100 w-100">
+                <div class="portfolio-item-caption-content my-auto w-100 text-center text-white">
+                  <i class="fa fa-search-plus fa-3x"></i>
+                </div>
+              </div>
+              <img class="img-fluid" src="{% static 'img/products/baggy-soap-cucumber.png' %}" alt="">
+            </a>
+            <h6 class="text-secondary text-center">Zingy Lime, Aloe and Cucumber</h6>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <a class="portfolio-item d-block mx-auto" href="#portfolio-modal-8">
+              <div class="portfolio-item-caption d-flex position-absolute h-100 w-100">
+                <div class="portfolio-item-caption-content my-auto w-100 text-center text-white">
+                  <i class="fa fa-search-plus fa-3x"></i>
+                </div>
+              </div>
+              <img class="img-fluid" src="{% static 'img/products/baggy-soap-orange-butter.png' %}" alt="">
+            </a>
+            <h6 class="text-secondary text-center">Fresh Orange Butter</h6>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <a class="portfolio-item d-block mx-auto" href="#portfolio-modal-9">
+              <div class="portfolio-item-caption d-flex position-absolute h-100 w-100">
+                <div class="portfolio-item-caption-content my-auto w-100 text-center text-white">
+                  <i class="fa fa-search-plus fa-3x"></i>
+                </div>
+              </div>
+              <img class="img-fluid" src="{% static 'img/products/baggy-soap-refill.png' %}" alt="">
+            </a>
+            <h6 class="text-secondary text-center">Soap Refills</h6>
+          </div>
+
+        </div>
+        <div class="text-center mt-4">
+          <a class="btn btn-xl" href="https://www.amazon.co.uk/s?marketplaceID=A1F83G8C2ARO7P&me=A345RKJ4B8EMS2&merchant=A345RKJ4B8EMS2">
+            <img class="fa fa-download mr-2" src="{% static 'img/Amazon-button-UK.png' %}" alt="Buy now on Amazon">
+          </a>
+
+          <!-- Temporary fix for broken link whilst we wait for Amazon to fix storefront -->
+          <!--<a class="btn btn-xl" href="https://www.amazon.co.uk/s/ref=nb_sb_noss?url=search-alias%3Daps&field-keywords=%22Baggy+Soap+Eco-Friendly+Soap+Bag%22&rh=i%3Aaps%2Ck%3A%22Baggy+Soap+Eco-Friendly+Soap+Bag%22">-->
+            <!--<img class="fa fa-download mr-2" src="{% static 'img/Amazon-button-UK.png' %}" alt="Buy now on Amazon">-->
+          <!--</a>-->
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="bg-primary text-white mb-0" id="benefits">
+      <div class="container">
+        <h2 class="text-center text-white mb-0">Benefits of Baggy Soap</h2>
+        <hr class="star-light text-center mb-5">
+        <div class="row">
+
+          <div class="col-lg-8 mx-auto text-white text-justify">
+            <h3>Why soap?</h3>
+            <p class="lead">We pride ourselves on sourcing the finest handmade soaps for our customers. We work with
+              local companies using the highest quality ingredients, to give the best possible washing experience.</p>
+            <p class="lead">Here's why we believe soap is superior to shower gel:</p>
+            <ul class="lead">
+              <li>Natural soaps contain no harsh chemicals, which can dry out your skin</li>
+              <li>Soap lasts longer, so costs less to the environment and your pocket</li>
+              <li>Less waste; our soaps come with no plastic packaging</li>
+              <li>No need to worry about liquid allowances in hand luggage when flying</li>
+              <li>No need to worry about spillages in your wash bag when travelling</li>
+              <li>Takes less space to store soap than bottles of shower gel</li>
+              <li>The soap is self cleaning</li>
+            </ul>
+          </div>
+          <div class="col-lg-8 mx-auto"><br/></div>
+          <div class="col-lg-8 mx-auto text-white text-justify">
+            <h3>Why a bag?</h3>
+            <p class="lead">Using soap in a bag is a whole different washing experience to using soap without a bag.
+              We think that you will agree once you give it a try!</p>
+            <p class="lead">Here are a few reasons why to get you started:</p>
+            <ul class="lead">
+              <li>The bag stops the soap getting slippery and slipping out of your hand
+              <li>The bag makes the soap froth up nicely</li>
+              <li>The bag acts like a mild exfoliant, so removes the need to use a shower puff (which is often made of
+plastic)</li>
+              <li>When your soap is getting a little too small to handle comfortably, you can simply pop another soap
+in the bag alongside the original sliver. This saves on wasting soap and also means you can create
+your own soap cocktails by mixing different scents!</li>
+              <li>The bag allows you to hang your soap up, removing the need for a soap dish (and stopping the soap
+going mushy in the dish)</li>
+              <li>At the end of its life, the bag is fully compostable, unlike plastic shower gel bottles or shower puffs</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="bg-primary text-white mb-0" id="faq">
+      <div class="container">
+        <h2 class="text-center text-white mb-0">Frequently Asked Questions</h2>
+        <hr class="star-light text-center mb-5">
+        <div class="faq-panel row">
+
+          <div class="faq col-lg-8 mx-auto text-white text-justify">
+            <h4 class="faq-title">Do I wash with the bag or is it just for storing my soap?
+                <a class="btn" data-toggle="collapse" href="#faq1">
+                    <i class="fa fa-fw fa-plus-square"></i>
+                </a>
+            </h4>
+            <div id="faq1" class="faq-answer collapse">
+              The idea is to wash with the bag, containing the soap, so that the cotton acts as a gentle exfoliant.
+              The bag helps the soap froth up more quickly too, as well as making it less slippery to hold.
+            </div>
+          </div>
+
+          <div class="faq col-lg-8 mx-auto text-white text-justify">
+            <h4 class="faq-title">How do I keep my soap from going soggy in the bag?
+                <a class="btn" data-toggle="collapse" href="#faq2">
+                    <i class="fa fa-fw fa-plus-square"></i>
+                </a>
+            </h4>
+            <div id="faq2" class="faq-answer collapse">
+              When you finish washing with your baggy soap, it is a good idea to hang the bag up straight away so it
+              can drip dry. We also find it can help to reshape your bag so it isn't scrunched up or clinging to the
+              soap. This allows the cotton and the soap to dry more easily.
+            </div>
+          </div>
+
+          <div class="faq col-lg-8 mx-auto text-white text-justify">
+            <h4 class="faq-title">What do I do when the soap is finished?
+                <a class="btn" data-toggle="collapse" href="#faq3">
+                    <i class="fa fa-fw fa-plus-square"></i>
+                </a>
+            </h4>
+            <div id="faq3" class="faq-answer collapse">
+              You can pop a new soap inside the bag straight away, or give your bag a rinse before re-filling it.
+              It's up to you! Once your soap is very small, you might wish to add a new one to it (making a soap
+              cocktail if you add a different fragrance!). However this isn't necessary as the beauty of Baggy Soap
+              is that it enables you to continue using soap right up until the end - and possibly even after the soap
+              has finished as there may be residue soap in the cotton that will still froth up. This reduces waste!
+            </div>
+          </div>
+
+          <div class="faq col-lg-8 mx-auto text-white text-justify">
+            <h4 class="faq-title">Can I put my bag in the washing machine?
+                <a class="btn" data-toggle="collapse" href="#faq4">
+                    <i class="fa fa-fw fa-plus-square"></i>
+                </a>
+            </h4>
+            <div id="faq4" class="faq-answer collapse">
+              You can. We have tested our bags on a standard 30 degree wash, using eco-friendly washing liquid, and they
+              come out fine. You may notice a slight amount of shrinkage in the bag itself, but this is to be expected
+              and it soon stretches back to its original size. However, be sure to remove your soap from the bag before
+              putting it in the washing machine, otherwise you may find you need another rinse at the end of the cycle
+              to get rid of all the extra soap suds!
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section class="text-secondary mb-0" id="about">
+      <div class="container">
+        <h2 class="text-center text-secondary">About Us</h2>
+        <hr class="star-dark text-center mb-5">
+
+        <div class="col-lg-8 mx-auto text-secondary text-justify">
+          <h3>Our story</h3>
+          <p class="lead">It all started with a soap, a small piece of rope and a dirty old bag on a boat.</p>
+          <p class="lead">One Christmas, I received a soap on a rope.  This was the first time that I had seen such a
+            thing.  I liked my soap on a rope.  It hung patiently in the shower, dripping itself dry, waiting
+            obediently to be put into service once again.  I was happy because it had solved one of my problems in
+            life.  I liked using soap because I didn’t like the plastic waste generated by shower gel, but the reality
+            of using soap was that I always ended up with a soggy bar of soap sitting in stagnating water while
+            depositing itself all over a soap dish.</p>
+          <p class="lead">One day, my soap fell off the rope and I was unhappy again.  I was left with the sizeable
+            remains of the bar of soap, which had obviously been relegated to just soap again, without a rope.  The
+            pitifully short piece of rope that I had gained in exchange did not qualify as adequate compensation.</p>
+          <p class="lead">Then we bought a new boat (which is our home).  We had outgrown our previous boat when our
+            daughter was born.  While cleaning out a locker that was full of rusty old paint tins etc., I came across
+            a small mesh bag with a drawstring, which I recognised as coming from washing tabs.  I never did understand
+            why you used to have to put those in a bag, and I hadn’t even seen one for years, but here one was.  I have
+            no idea why the previous owner had put that little bag in with the rusty tins, but unperturbed, I thought
+            “Aha!  My soap will fit in that bag thereby restoring it’s ‘on a rope’ status once again”.  Well, I
+            couldn’t have been happier when I tried it out.  Not only did it solve the soggy soap problem, but it was
+            better at scrubbing, could contain any sized soap without the soap falling out, and was reusable.</p>
+          <p class="lead">While this may have made me happy, it didn’t make Kate, my wife, very happy.  She had to put
+            up with me banging on about how good my soap in a bag was.  She didn’t care about my soap in a bag.  She
+            could have used some peace and quiet.</p>
+          <p class="lead">Some weeks later, we were away for our friends’ wedding.  Kate had forgotten to take her
+            toiletries so when she came to shower, she reached for my soap in a bag, which I didn’t go anywhere without
+            and that was dutifully hanging in the shower.  Well, blow me down with a feather.  After her shower she
+            didn’t stop banging on about how good my soap in a bag was.  To be honest, I could have used some peace
+            and quiet because she was preaching to the choir.</p>
+          <p class="lead">My sister, Lucy, was also with us and she and Kate decided that soap in a bag needed to be
+            brought to the masses.  They also decided that soap in a bag wasn’t a good name.  I was slightly put out
+            because me and my soap in a bag had been doing just fine before they came along.  Nevertheless, soap in a
+            bag was dead, but from the ashes arose Baggy Soap.</p>
+        </div>
+        <div class="col-lg-8 mx-auto"><br/></div>
+        <div class="col-lg-8 mx-auto text-secondary text-justify">
+          <h3>Our values</h3>
+          <p class="lead">One of our main aims as a company is to have a minimal environmental impact. In cases where
+            we don't feel we've met our sustainability targets, we will always be completely honest about this, so
+            our customers know that we are doing everything possible to make it right.</p>
+          <h4>Bags</h4>
+          <p class="lead">Our original aim was to use bags manufactured in the UK, using natural, UK-sourced materials,
+            but this has proven to be an extremely difficult task. The cotton mesh fabric that we require for our bags
+            is not currently manufactured in the UK, and UK suppliers of similar fabrics are often importing them from
+            other countries themselves, such as Italy or China.</p>
+          <p class="lead">We found a UK manufacturer willing to make the bags for us if we supplied the material, but
+            at the last minute they retracted their offer due to ongoing staffing issues. We still hope to return to
+            this manufacturer when they have the capacity to supply us, but in the interim we needed to look
+            elsewhere.</p>
+          <p class="lead">Our bags are currently made in China using materials sourced from China, all of which are 100%
+            cotton, with the exception of the label on our current batch of bags. This means that customers wishing to
+            compost their bag should remove the polyester 'baggy soap' label before doing so. We are working with our
+            manufacturer to source cotton labels for our next batch of bags.</p>
+          <h4>Soap</h4>
+          <p class="lead">Our original aim was to use natural, handmade soaps that are manufactured in the UK, and
+            we have succeeded in this mission. However, we are learning as we go along and are currently on our fifth
+            soap supplier. It seems that the definition of 'natural' is subject to interpretation, so we are
+            working on defining our own standards in order to ensure that our products are kind to both skin and the
+            environment.</p>
+          <p class="lead">All our current soap ranges are SLS, SLES and Parabens free, and are vegan friendly. Some
+            are organic and they are all completely natural and handmade in the UK. We have used suppliers from Cumbria,
+            Bedfordshire and Nottinghamshire, and are now working with two wonderful manufacturers based in Norfolk and
+            West Yorkshire to supply our new range. We provide the full ingredients of all products, so that customers
+            are fully informed about what they are buying.</p>
+          <h4>Packaging</h4>
+          <p class="lead">Our original aim was to use 100% recycled and recyclable packaging, containing no plastic
+            whatsoever. We are able to do this, by sourcing 100% recycled vintage manilla envelopes in which to
+            ship our products. We have found that the cotton bag works well to protect the soap inside, and we have
+            started to include 100% recycled business cards as labels for our Baggy Soaps, following feedback from
+            customers wanting some information about Baggy Soap to be included with their order. Our replacement soap
+            bars are wrapped in 100% recycled kraft paper, and are sealed with a compostable Baggy Soap label. So far,
+            everything seems to be surviving the postal journey without any plastic padding, but we always want to
+            be informed if any products don't reach our customers in good condition, as we don't believe that anyone
+            should pay good money for damaged goods.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Contact Us Section -->
+    <section class="bg-primary text-white mb-0"  id="contact">
+      <div class="container">
+        <h2 class="text-center text-white mb-0">Contact Us</h2>
+        <hr class="star-light text-center mb-5">
+
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <p class="lead text-justify">We are a friendly, family company based in south-east London. We love to hear from our
+              customers with any comments, feedback or suggestions, but we don't currently have a sales outlet open to
+              the public. If you would like to get in touch with us directly, please use the following:</p>
+            <br />
+          </div>
+          <div class="col-lg-7 mx-auto">
+            <p class="lead">Email: <a href="mailto:enquiries@baggysoap.co.uk">enquiries@baggysoap.co.uk</a></p>
+            <p class="lead">Twitter: <a href="https://twitter.com/BaggySoap">@BaggySoap</a></p>
+          </div>
+        </div>
+
+        <!--<div class="row">-->
+          <!--<div class="col-lg-8 mx-auto">-->
+            <!--<p class="lead">We are based in south-east London, but we don't have a sales outlet open to the public.-->
+              <!--If you would like to purchase one of our products, please visit one of our stockists:</p>-->
+            <!--<br/>-->
+          <!--</div>-->
+        <!--</div>-->
+        <!--<div class="row">-->
+          <!--<div class="col-md-4 mx-auto">-->
+            <!--<a class="btn btn-xs text-center" href="#">-->
+              <!--<img class="fa mr-2" src="{% static 'img/shops/ethical_superstore_small.png' %}" alt="Ethical Superstore">-->
+            <!--</a>-->
+          <!--</div>-->
+          <!--<div class="col-md-4 mx-auto">-->
+            <!--<a class="btn btn-xs text-center" href="#">-->
+              <!--<img class="fa mr-2" src="{% static 'img/shops/amazon-logo-transparent-small.png' %}" alt="Amazon">-->
+            <!--</a>-->
+          <!--</div>-->
+          <!--<div class="col-md-4 mx-auto">-->
+            <!--<a class="btn btn-xs text-center" href="#">-->
+              <!--<img class="fa mr-2" src="{% static 'img/shops/not_on_the_high_street_small.png' %}" alt="Not On The High Street">-->
+            <!--</a>-->
+          <!--</div>-->
+        <!--</div>-->
+        <!--<div class="row">-->
+          <!--<div class="col-lg-8 mx-auto">-->
+            <!--<br/>-->
+            <!--<p class="lead">If you would like to get in touch with us directly, please contact us at-->
+              <!--<a href="mailto:enquiries@baggysoap.co.uk">enquiries@baggysoap.co.uk</a></p>-->
+            <!--<br/>-->
+          <!--</div>-->
+        <!--</div>-->
+
+
+            <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
+            <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
+            <!--<form name="sentMessage" id="contactForm" novalidate="novalidate">-->
+              <!--<div class="control-group">-->
+                <!--<div class="form-group floating-label-form-group controls mb-0 pb-2">-->
+                  <!--<label>Name</label>-->
+                  <!--<input class="form-control" id="name" type="text" placeholder="Name" required="required" data-validation-required-message="Please enter your name.">-->
+                  <!--<p class="help-block text-danger"></p>-->
+                <!--</div>-->
+              <!--</div>-->
+              <!--<div class="control-group">-->
+                <!--<div class="form-group floating-label-form-group controls mb-0 pb-2">-->
+                  <!--<label>Email Address</label>-->
+                  <!--<input class="form-control" id="email" type="email" placeholder="Email Address" required="required" data-validation-required-message="Please enter your email address.">-->
+                  <!--<p class="help-block text-danger"></p>-->
+                <!--</div>-->
+              <!--</div>-->
+              <!--<div class="control-group">-->
+                <!--<div class="form-group floating-label-form-group controls mb-0 pb-2">-->
+                  <!--<label>Phone Number</label>-->
+                  <!--<input class="form-control" id="phone" type="tel" placeholder="Phone Number" required="required" data-validation-required-message="Please enter your phone number.">-->
+                  <!--<p class="help-block text-danger"></p>-->
+                <!--</div>-->
+              <!--</div>-->
+              <!--<div class="control-group">-->
+                <!--<div class="form-group floating-label-form-group controls mb-0 pb-2">-->
+                  <!--<label>Message</label>-->
+                  <!--<textarea class="form-control" id="message" rows="5" placeholder="Message" required="required" data-validation-required-message="Please enter a message."></textarea>-->
+                  <!--<p class="help-block text-danger"></p>-->
+                <!--</div>-->
+              <!--</div>-->
+              <!--<br>-->
+              <!--<div id="success"></div>-->
+              <!--<div class="form-group">-->
+                <!--<button type="submit" class="btn btn-primary btn-xl" id="sendMessageButton">Send</button>-->
+              <!--</div>-->
+            <!--</form>-->
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer text-center">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 mb-5 mb-lg-0">
+            <h4 class="text-uppercase mb-4">Get In Touch</h4>
+            <p class="lead mb-0"><a href="mailto:enquiries@baggysoap.co.uk">enquiries@baggysoap.co.uk</a></p>
+          </div>
+          <div class="col-md-4 mb-5 mb-lg-0">
+            <h4 class="text-uppercase mb-4">Around the Web</h4>
+            <ul class="list-inline mb-0">
+              <li class="list-inline-item">
+                <a class="btn btn-outline-light btn-social text-center rounded-circle" href="https://www.amazon.co.uk/s?marketplaceID=A1F83G8C2ARO7P&me=A345RKJ4B8EMS2&merchant=A345RKJ4B8EMS2">
+                  <i class="fa fa-fw fa-amazon"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a class="btn btn-outline-light btn-social text-center rounded-circle" href="https://www.facebook.com/baggysoap">
+                  <i class="fa fa-fw fa-facebook"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a class="btn btn-outline-light btn-social text-center rounded-circle" href="https://www.instagram.com/baggysoap">
+                  <i class="fa fa-fw fa-instagram"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a class="btn btn-outline-light btn-social text-center rounded-circle" href="https://twitter.com/BaggySoap">
+                  <i class="fa fa-fw fa-twitter"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a class="btn btn-outline-light btn-social text-center rounded-circle" href="https://www.linkedin.com/company/the-baggy-soap-company/">
+                  <i class="fa fa-fw fa-linkedin"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-4">
+            <h4 class="text-uppercase mb-4">About Us</h4>
+            <p class="lead mb-0">The Baggy Soap Company Limited is registered in England and Wales with company number 11090960.</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <div class="copyright py-4 text-center text-white">
+      <div class="container">
+        <small>Copyright &copy; MitchellSoft Technology Ltd 2018</small>
+      </div>
+    </div>
+
+    <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+    <div class="scroll-to-top d-lg-none position-fixed ">
+      <a class="js-scroll-trigger d-block text-center text-white rounded" href="#page-top">
+        <i class="fa fa-chevron-up"></i>
+      </a>
+    </div>
+
+    <!-- Portfolio Modals -->
+
+    <!-- Portfolio Modal 1 -->
+    <div class="portfolio-modal mfp-hide" id="portfolio-modal-1">
+      <div class="portfolio-modal-dialog bg-white">
+        <a class="close-button d-none d-md-block portfolio-modal-dismiss" href="#">
+          <i class="fa fa-3x fa-times"></i>
+        </a>
+        <div class="container text-center">
+          <div class="row">
+            <div class="col-lg-8 mx-auto">
+              <h2 class="text-secondary mb-0">Morning Mint Baggy Soap</h2>
+              <hr class="star-dark mb-5">
+              <img class="img-fluid mb-5" src="{% static 'img/products/baggy-soap-minty.png' %}" alt="">
+              <p class="mb-5">Our original white and purple cotton bag containing an organic, handmade soap with the
+                fresh scent of spearmint. Perfect for waking you up in the morning!
+                <br /><br />
+                This soap is proudly hand-crafted by our environmentally friendly supplier in Norfolk and is
+                palm oil free, as well as being 100% organic and vegan.</p>
+              <p class="mb-5">Ingredients: Filtered water (aqua), rapeseed oil (sodium brassica napus),
+                coconut oil (sodium cocoate), essential oils of basil (ocimum basillicum), spearmint (mentha spicata),
+                patchouli (pogostemon cablin), comfrey (symphytum officinale) root powder,
+                *limonene and linalool *naturally derived from plant essential oils</p>
+              <p class="mb-5">Weight: 105g</p>
+              <a class="btn btn-xl" href="https://www.amazon.co.uk/dp/B07F7RDDBD">
+                <img class="fa fa-download mr-2" src="{% static 'img/Amazon-button-UK.png' %}" alt="Buy now on Amazon">
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Portfolio Modal 2 -->
+    <div class="portfolio-modal mfp-hide" id="portfolio-modal-2">
+      <div class="portfolio-modal-dialog bg-white">
+        <a class="close-button d-none d-md-block portfolio-modal-dismiss" href="#">
+          <i class="fa fa-3x fa-times"></i>
+        </a>
+        <div class="container text-center">
+          <div class="row">
+            <div class="col-lg-8 mx-auto">
+              <h2 class="text-secondary mb-0">Neroli & Sweet Orange Baggy Soap</h2>
+              <hr class="star-dark mb-5">
+              <img class="img-fluid mb-5" src="{% static 'img/products/baggy-soap-neroli.png' %}" alt="">
+              <p class="mb-5">Our original white and purple cotton bag containing an organic, handmade soap with the
+                delightful floral, sweet scent of neroli and orange.
+                <br /><br />
+                This soap is proudly hand-crafted by our environmentally friendly supplier in Norfolk and is
+                palm oil free, as well as being 100% organic and vegan.</p>
+              <p class="mb-5">Ingredients: Filtered water (aqua), rapeseed oil (sodium brassica napus),
+                coconut oil (sodium cocoate), cocoa butter (sodium cocoa butterate),
+                essential oils of neroli (citrus aurantium dulcis), organic sweet orange (citrus sinensis),
+                *citral, limonene and linalool *naturally derived from plant essential oils</p>
+              <p class="mb-5">Weight: 105g</p>
+              <a class="btn btn-xl" href="https://www.amazon.co.uk/dp/B07F7LJ9QZ">
+                <img class="fa fa-download mr-2" src="{% static 'img/Amazon-button-UK.png' %}" alt="Buy now on Amazon">
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Portfolio Modal 3 -->
+    <div class="portfolio-modal mfp-hide" id="portfolio-modal-3">
+      <div class="portfolio-modal-dialog bg-white">
+        <a class="close-button d-none d-md-block portfolio-modal-dismiss" href="#">
+          <i class="fa fa-3x fa-times"></i>
+        </a>
+        <div class="container text-center">
+          <div class="row">
+            <div class="col-lg-8 mx-auto">
+              <h2 class="text-secondary mb-0">Natural Baby Baggy Soap</h2>
+              <hr class="star-dark mb-5">
+              <img class="img-fluid mb-5" src="{% static 'img/products/baggy-soap-baby.png' %}" alt="">
+              <p class="mb-5">Our original white and purple cotton bag containing a very mild and gentle organic,
+                handmade soap containing lavender and ylang ylang, which is ideal for sensitive baby skin.
+                <br /><br />
+                This soap is proudly hand-crafted by our environmentally friendly supplier in Norfolk and is
+                palm oil free, as well as being 100% organic and vegan.</p>
+              <p class="mb-5">Ingredients: Filtered water (aqua), rapeseed oil (sodium brassica napus),
+                coconut oil (sodium cocoate), essential oils of lavender(lavandula angustifolia),
+                ylang ylang (cananga odorata), *geraniol, limonene and linalool
+                *naturally derived from plant essential oils</p>
+              <p class="mb-5">Weight: 105g</p>
+              <a class="btn btn-xl" href="https://www.amazon.co.uk/dp/B07F7LJRVJ">
+                <img class="fa fa-download mr-2" src="{% static 'img/Amazon-button-UK.png' %}" alt="Buy now on Amazon">
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Portfolio Modal 4 -->
+    <div class="portfolio-modal mfp-hide" id="portfolio-modal-4">
+      <div class="portfolio-modal-dialog bg-white">
+        <a class="close-button d-none d-md-block portfolio-modal-dismiss" href="#">
+          <i class="fa fa-3x fa-times"></i>
+        </a>
+        <div class="container text-center">
+          <div class="row">
+            <div class="col-lg-8 mx-auto">
+              <h2 class="text-secondary mb-0">Lavender Baggy Soap</h2>
+              <hr class="star-dark mb-5">
+              <img class="img-fluid mb-5" src="{% static 'img/products/baggy-soap-lavender.png' %}" alt="">
+              <p class="mb-5">Our original white and purple cotton bag containing a completely natural, handmade soap
+                  enhanced with soothing lavender essential oil and finely cut lavender flowers.
+                  <br /><br />
+                  This soap is lovingly made by our ethical supplier in West Yorkshire and is palm oil free,
+                  as well as being certified cruelty free and vegan.</p>
+              <p class="mb-5">Ingredients: Olive Oil (sodium olivate), Coconut Oil (sodium cocoate), Water (aqua),
+                  Shea Butter (butyrospermum parkii butter), Lavender (lavandula angustifolia) essential oil contains linalool, limonene, geraniol,
+                  Lavender (lavandula angustifolia) flowers</p>
+              <p class="mb-5">Weight: 90g</p>
+              <a class="btn btn-xl" href="https://www.amazon.co.uk/dp/B07F7JRNJD">
+                <img class="fa fa-download mr-2" src="{% static 'img/Amazon-button-UK.png' %}" alt="Buy now on Amazon">
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Portfolio Modal 5 -->
+    <div class="portfolio-modal mfp-hide" id="portfolio-modal-5">
+      <div class="portfolio-modal-dialog bg-white">
+        <a class="close-button d-none d-md-block portfolio-modal-dismiss" href="#">
+          <i class="fa fa-3x fa-times"></i>
+        </a>
+        <div class="container text-center">
+          <div class="row">
+            <div class="col-lg-8 mx-auto">
+              <h2 class="text-secondary mb-0">Tea Tree & Turmeric Baggy Soap</h2>
+              <hr class="star-dark mb-5">
+              <img class="img-fluid mb-5" src="{% static 'img/products/baggy-soap-tea-tree-turmeric.png' %}" alt="">
+              <p class="mb-5">Our original white and purple cotton bag containing a completely natural, handmade soap
+                  enhanced with cleansing tea tree essential oil and anti-inflammatory turmeric root powder.
+                  <br /><br />
+                  This soap is lovingly made by our ethical supplier in West Yorkshire and is palm oil free,
+                  as well as being certified cruelty free and vegan.
+                  <br /><br />
+                  Note: Due to the staining nature of turmeric, you may find that your white bag turns a faint yellow/cream
+                  colour from using this soap. However, in our opinion, it doesn't look bad - it gives the bag a
+                  more natural, well-loved look, and goes nicely with the purple!</p>
+              <p class="mb-5">Ingredients: Olive Oil (sodium olivate), Coconut Oil (sodium cocoate), Water (aqua),
+                  Shea Butter (butyrospermum parkii butter), Tea Tree (melaleuca alternifolia) essential oil contains limonene,
+                  Turmeric (curcuma longa) root powder</p>
+              <p class="mb-5">Weight: 90g</p>
+              <a class="btn btn-xl" href="https://www.amazon.co.uk/dp/B07F7MZGKX">
+                <img class="fa fa-download mr-2" src="{% static 'img/Amazon-button-UK.png' %}" alt="Buy now on Amazon">
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Portfolio Modal 6 -->
+    <div class="portfolio-modal mfp-hide" id="portfolio-modal-6">
+      <div class="portfolio-modal-dialog bg-white">
+        <a class="close-button d-none d-md-block portfolio-modal-dismiss" href="#">
+          <i class="fa fa-3x fa-times"></i>
+        </a>
+        <div class="container text-center">
+          <div class="row">
+            <div class="col-lg-8 mx-auto">
+              <h2 class="text-secondary mb-0">Woodland Fresh Baggy Soap</h2>
+              <hr class="star-dark mb-5">
+              <img class="img-fluid mb-5" src="{% static 'img/products/baggy-soap-guys.png' %}" alt="">
+              <p class="mb-5">Our original white and purple cotton bag containing an organic, handmade soap which is
+                  antiseptic and healing, with a fresh woody scent.
+                <br /><br />
+                This soap is proudly hand-crafted by our environmentally friendly supplier in Norfolk and is
+                palm oil free, as well as being 100% organic and vegan.</p>
+              <p class="mb-5">Ingredients: Filtered water (aqua), rapeseed oil (sodium brassica napus),
+                coconut oil (sodium cocoate), cocoa butter (sodium cocoa butterate),
+                essential oils of tea tree (melaleuca alternifolia), lemon oil (citrus medica limonum),
+                clary sage (salvia sclarea),cedarwood (cedrus atlantica),
+                organic comfrey leaf powder (symphytum officinale), *limonene, linalool, citral, geraniol,
+                *naturally derived from plant essential oils.</p>
+              <p class="mb-5">Weight: 105g</p>
+              <a class="btn btn-xl" href="https://www.amazon.co.uk/dp/B07FK68HX5">
+                <img class="fa fa-download mr-2" src="{% static 'img/Amazon-button-UK.png' %}" alt="Buy now on Amazon">
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Portfolio Modal 7 -->
+    <div class="portfolio-modal mfp-hide" id="portfolio-modal-7">
+      <div class="portfolio-modal-dialog bg-white">
+        <a class="close-button d-none d-md-block portfolio-modal-dismiss" href="#">
+          <i class="fa fa-3x fa-times"></i>
+        </a>
+        <div class="container text-center">
+          <div class="row">
+            <div class="col-lg-8 mx-auto">
+              <h2 class="text-secondary mb-0">Zingy Lime, Aloe and Cucumber Baggy Soap</h2>
+              <hr class="star-dark mb-5">
+              <img class="img-fluid mb-5" src="{% static 'img/products/baggy-soap-cucumber.png' %}" alt="">
+              <p class="mb-5">Our original white and purple cotton bag containing a completely natural, handmade soap
+                  that is cool, fresh and zingy. Whole fresh, crunchy cucumbers are pureed into organic aloe vera juice,
+                  along with handfuls of dill weed, amazingly fruity Peruvian lime oil, the most gorgeous Moroccan
+                  cedarwood oil, a bit of lavender and lashings of shea butter.
+                  <br /><br />
+                  This soap is proudly hand-crafted by our ethical supplier in North Wales and is made with certified
+                  sustainable palm oil, as well as being cruelty free and vegan.
+              </p>
+              <p class="mb-5">Ingredients: Sustainable palm oil (sodium palmate), coconut oil (sodium cocoate),
+                  olive oil (sodium olivate), sunflower oil (sodium sunflowerate), cocoa butter (sodium cocoa butterate),
+                  castor oil (sodium castorate) & shea butter (butyrospermum parkii), with organic aloe vera juice
+                  (aloe barbadensis), puree of fresh cucumber (cucumis sativus), dill herb (anethum graveolens) and
+                  essential oils of lime (citrus aurantifolia), cedarwood (cedrus atlanticus) and
+                  lavandin (avanda angustifolia). *Limonene*, linalool* and citral*. *Naturally present in essential oils.
+              </p>
+              <p class="mb-5">Weight: 110g</p>
+              <a class="btn btn-xl" href="https://www.amazon.co.uk/dp/B07GZS2VFB">
+                <img class="fa fa-download mr-2" src="{% static 'img/Amazon-button-UK.png' %}" alt="Buy now on Amazon">
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Portfolio Modal 8 -->
+    <div class="portfolio-modal mfp-hide" id="portfolio-modal-8">
+      <div class="portfolio-modal-dialog bg-white">
+        <a class="close-button d-none d-md-block portfolio-modal-dismiss" href="#">
+          <i class="fa fa-3x fa-times"></i>
+        </a>
+        <div class="container text-center">
+          <div class="row">
+            <div class="col-lg-8 mx-auto">
+              <h2 class="text-secondary mb-0">Fresh Orange Butter Baggy Soap</h2>
+              <hr class="star-dark mb-5">
+              <img class="img-fluid mb-5" src="{% static 'img/products/baggy-soap-orange-butter.png' %}" alt="">
+              <p class="mb-5">Our original white and purple cotton bag containing a completely natural, handmade soap
+                  that is sunshiny, fresh and citrussy, with ground orange peel and a blend of essential oils of orange,
+                  tangerine and petigrain.
+                  <br /><br />
+                  This soap is proudly hand-crafted by our ethical supplier in North Wales and is made with certified
+                  sustainable palm oil, as well as being cruelty free and vegan.
+              </p>
+              <p class="mb-5">Ingredients: Sustainable palm oil (sodium palmate), coconut oil (sodium cocoate),
+                  olive oil (sodium olivate), sunflower oil (sodium sunflowerate), cocoa butter (sodium cocoa butterate),
+                  castor oil (sodium castorate) & shea butter (butyrospermum parkii), with ground orange peel and essential
+                  oils of orange (citrus aurantium dulcis), tangerine (citrus reticulata) and petitgrain (citrus aurantium amara).
+                  Coloured with annatto seeds and carrot root oil. *Limonene*, linalool*, citral* and geraniol*.
+                  *Naturally present in essential oils.
+              </p>
+              <p class="mb-5">Weight: 110g</p>
+              <a class="btn btn-xl" href="https://www.amazon.co.uk/dp/B07GZWB7F7">
+                <img class="fa fa-download mr-2" src="{% static 'img/Amazon-button-UK.png' %}" alt="Buy now on Amazon">
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Portfolio Modal 9 -->
+    <div class="portfolio-modal mfp-hide" id="portfolio-modal-9">
+      <div class="portfolio-modal-dialog bg-white">
+        <a class="close-button d-none d-md-block portfolio-modal-dismiss" href="#">
+          <i class="fa fa-3x fa-times"></i>
+        </a>
+        <div class="container text-center">
+          <div class="row">
+            <div class="col-lg-8 mx-auto">
+              <h2 class="text-secondary mb-0">Soap Refills</h2>
+              <hr class="star-dark mb-5">
+              <img class="img-fluid mb-5" src="{% static 'img/products/baggy-soap-refill.png' %}" alt="">
+              <p class="mb-5">Our refill soap bars are intended for use with an existing Baggy Soap bag. They are all
+                100% natural, handmade soaps from one of our three carefully chosen UK-based suppliers.
+                <br /><br />
+                All refill products are wrapped in 100% recycled and recyclable paper, and sealed with a compostable label.
+              </p>
+              <a class="btn btn-xl" href="https://www.amazon.co.uk/dp/B07FWPTC51">
+                <img class="fa fa-download mr-2" src="{% static 'img/Amazon-button-UK.png' %}" alt="Buy now on Amazon">
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="{% static 'vendor/jquery-easing/jquery.easing.min.js' %}"></script>
+    <script src="{% static 'vendor/magnific-popup/jquery.magnific-popup.js' %}"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="{% static 'js/jqBootstrapValidation.js' %}"></script>
+    <script src="{% static 'js/contact_me.js' %}"></script>
+
+    <!-- History JavaScript -->
+    <script src="{% static 'js/jquery.history.js' %}"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="{% static 'js/freelancer.js' %}"></script>
+
+    <script>
+      $('.faq-title > a').click(function() {
+        $(this).find('i').toggleClass('fa-plus-square fa-minus-square')
+               .closest('faq-panel').siblings('faq-panel')
+               .find('i')
+               .removeClass('fa-minus-square').addClass('fa-plus-square');
+      });
+    </script>
+
+  </body>
+
+</html>
