@@ -1,0 +1,11 @@
+{% extends 'oscar/offer/range.html' %}
+{% load i18n %}
+
+{% block breadcrumbs %}
+    <ul class="breadcrumb">
+        <li>
+            <a href="{% url 'catalogue:index' %}">{% trans 'Store' %}</a>
+        </li>
+        <li class="active">{{ range.name }}</li>
+    </ul>
+{% endblock breadcrumbs %}

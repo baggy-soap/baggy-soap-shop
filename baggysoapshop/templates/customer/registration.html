@@ -1,0 +1,11 @@
+{% extends 'oscar/customer/registration.html' %}
+{% load i18n %}
+
+{% block breadcrumbs %}
+    <ul class="breadcrumb">
+        <li>
+            <a href="{% url 'catalogue:index' %}">{% trans 'Store' %}</a>
+        </li>
+        <li class="active">{% trans 'Register' %}</li>
+    </ul>
+{% endblock %}

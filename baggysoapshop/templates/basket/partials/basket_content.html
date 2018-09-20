@@ -1,0 +1,9 @@
+{% extends 'oscar/basket/partials/basket_content.html' %}
+{% load i18n %}
+
+{% block emptybasket %}
+    <p>
+        {% trans "Your basket is empty." %}
+        <a href="{% url 'catalogue:index' %}">{% trans "Continue shopping" %}</a>
+    </p>
+{% endblock %}

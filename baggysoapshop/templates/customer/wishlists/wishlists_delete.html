@@ -1,0 +1,20 @@
+{% extends 'oscar/customer/wishlists/wishlists_delete.html' %}
+{% load i18n %}
+
+{% block breadcrumbs %}
+    <ul class="breadcrumb">
+        <li>
+            <a href="{% url 'catalogue:index' %}">{% trans 'Store' %}</a>
+        </li>
+        <li>
+            <a href="{% url 'customer:summary' %}">{% trans 'Account' %}</a>
+        </li>
+        <li>
+            <a href="{% url 'customer:wishlists-list' %}">{% trans 'Wish Lists' %}</a>
+        </li>
+        <li>
+            <a href="{% url 'customer:wishlists-detail' key=wishlist.key %}">{{ wishlist.name }}</a>
+        </li>
+        <li class="active">{% trans "Delete?" %}</li>
+    </ul>
+{% endblock %}
