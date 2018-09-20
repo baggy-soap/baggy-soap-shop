@@ -8574,7 +8574,7 @@ input[type="number"][id*="quantity"] {
 .choose-block .btn-success {
   position: absolute;
   bottom: 30px;
-  left: 30px;
+  right: 30px;
 }
 .choose-block .address-controls {
   position: absolute;
