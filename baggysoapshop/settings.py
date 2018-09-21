@@ -243,6 +243,7 @@ OSCAR_INITIAL_LINE_STATUS = 'Pending'
 OSCAR_ORDER_STATUS_PIPELINE = {
     'Pending': ('Packaged', 'Cancelled',),
     'Packaged': ('Dispatched', 'Cancelled',),
+    'Dispatched': (),
     'Cancelled': (),
 }
 
