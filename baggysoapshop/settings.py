@@ -69,6 +69,10 @@ ENVIRONMENT = os.environ.get('ENVIRONMENT', 'development')
 
 ALLOWED_HOSTS = [
     'baggy-soap-shop.herokuapp.com',
+    'baggy-soap-staging.herokuapp.com',
+    'baggy-soap-production.herokuapp.com',
+    '.baggysoap.co.uk',
+    '.baggysoap.com',
     'localhost',
 ]
 
