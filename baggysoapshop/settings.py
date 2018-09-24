@@ -94,7 +94,8 @@ INSTALLED_APPS = [
     'storages',
     'paypal',
 ] + get_core_apps([
-    'shipping'
+    'shipping',
+    'catalogue',
 ])
 
 SITE_ID = 1
