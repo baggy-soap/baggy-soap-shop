@@ -1,0 +1,12 @@
+{% load i18n %}
+
+{% blocktrans with domain=site.domain %}Thank you for registering with {{ domain }}.{% endblocktrans %}
+
+{% trans 'You can view your past and present orders when you login to your account.' %}
+
+{% blocktrans with domain=site.domain %}Visit: http://{{ domain }}/accounts/login/ and enter your details.{% endblocktrans %}
+
+{% trans 'All the best,' %}
+
+{% blocktrans with name=site.name %}The {{ name }} team{% endblocktrans %}
+{% blocktrans with domain=site.domain %}{{ domain }}{% endblocktrans %}

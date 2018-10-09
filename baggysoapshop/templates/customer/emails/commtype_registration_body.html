@@ -1,0 +1,14 @@
+{% load i18n %}
+
+<p>{% blocktrans with domain=site.domain %}Thank you for registering with {{ domain }}.{% endblocktrans %}</p>
+
+<p>{% trans 'You can view your past and present orders when you login to your account.' %}</p>
+
+<p>{% blocktrans with domain=site.domain %}Visit: http://{{ domain }}/accounts/login/ and enter your details.{% endblocktrans %}</p>
+
+<p>{% trans 'All the best,' %}</p>
+
+<p>
+    {% blocktrans with name=site.name %}The {{ name }} team{% endblocktrans %}<br />
+    {% blocktrans with domain=site.domain %}{{ domain }}{% endblocktrans %}
+</p>
