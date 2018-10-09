@@ -9105,4 +9105,11 @@ input[type="number"][id*="quantity"] {
   text-align: center;
 }
 
+.disclaimer {
+  color: var(--main-red);
+  font-style: italic;
+  font-weight: bold;
+  margin: 5px;
+}
+
 /*# sourceMappingURL=styles.css.map */
