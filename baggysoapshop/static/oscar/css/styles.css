@@ -8182,7 +8182,7 @@ ul.row {
   margin-left: 0;
 }
 .product_pod {
-  height: 370px;
+  height: 395px;
   overflow: hidden;
   text-align: center;
   margin: 20px 0;
@@ -8279,6 +8279,7 @@ a:hover .thumbnail {
   display: block;
   color: var(--darker-green);
   font-weight: bold;
+  background-color: white;
 }
 .product_main .price_color {
   font-size: 26px;
