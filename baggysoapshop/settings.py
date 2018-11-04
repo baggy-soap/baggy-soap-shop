@@ -96,6 +96,7 @@ INSTALLED_APPS = [
 ] + get_core_apps([
     'shipping',
     'catalogue',
+    'checkout',
 ])
 
 SITE_ID = 1
