@@ -97,6 +97,7 @@ INSTALLED_APPS = [
     'shipping',
     'catalogue',
     'checkout',
+    'order',
 ])
 
 SITE_ID = 1
@@ -306,3 +307,6 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER', '')
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD', '')
 EMAIL_USE_TLS = True
+
+NOSE_ARGS = ['--nocapture',
+             '--nologcapture']
