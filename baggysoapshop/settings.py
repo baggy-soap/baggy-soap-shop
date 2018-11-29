@@ -98,6 +98,8 @@ INSTALLED_APPS = [
     'catalogue',
     'checkout',
     'order',
+    'dashboard',
+    'dashboard.catalogue',
 ])
 
 SITE_ID = 1
