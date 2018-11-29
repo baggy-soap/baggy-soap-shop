@@ -15,7 +15,8 @@ class Product(AbstractProduct):
 
     @property
     def total_allocated(self):
-        return sum(stockrecord.num_allocated for stockrecord in self.stockrecords.all())
+        return sum(stockrecord.num_allocated if stockrecord.num_allocated else 0
+                   for stockrecord in self.stockrecords.all())
 
 
 from oscar.apps.catalogue.models import *

@@ -58,3 +58,8 @@ class ProductTest(TestCase):
         StockRecord.objects.create(product=self.product, partner=partner_1, num_in_stock=2, num_allocated=1)
         StockRecord.objects.create(product=self.product, partner=partner_2, num_in_stock=5, num_allocated=1)
         self.assertEqual(2, self.product.total_allocated)
+
+    def test_total_allocated_for_when_num_allocated_is_none(self):
+        partner = Partner.objects.create()
+        StockRecord.objects.create(product=self.product, partner=partner, num_in_stock=2)
+        self.assertEqual(0, self.product.total_allocated)
