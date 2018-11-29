@@ -46,3 +46,15 @@ class ProductTest(TestCase):
         StockRecord.objects.create(product=self.product, partner=partner_1, num_in_stock=2)
         StockRecord.objects.create(product=self.product, partner=partner_2, num_in_stock=5)
         self.assertEqual(7, self.product.total_stock_count)
+
+    def test_total_allocated_for_single_record(self):
+        partner = Partner.objects.create()
+        StockRecord.objects.create(product=self.product, partner=partner, num_in_stock=2, num_allocated=1)
+        self.assertEqual(1, self.product.total_allocated)
+
+    def test_total_allocated_for_multiple_records(self):
+        partner_1 = Partner.objects.create()
+        partner_2 = Partner.objects.create()
+        StockRecord.objects.create(product=self.product, partner=partner_1, num_in_stock=2, num_allocated=1)
+        StockRecord.objects.create(product=self.product, partner=partner_2, num_in_stock=5, num_allocated=1)
+        self.assertEqual(2, self.product.total_allocated)

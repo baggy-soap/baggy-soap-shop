@@ -1,0 +1,5 @@
+{% if not record.has_stockrecords %}
+    -
+{% else %}
+    {{ record.total_allocated }}
+{% endif %}

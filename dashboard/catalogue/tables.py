@@ -34,6 +34,10 @@ class ProductTable(tables.ProductTable):
         verbose_name=_('Num in stock'),
         template_name='dashboard/catalogue/product_row_numinstock.html',
         orderable=False)
+    num_allocated = TemplateColumn(
+        verbose_name=_('Num allocated'),
+        template_name='dashboard/catalogue/product_row_numallocated.html',
+        orderable=False)
     actions = TemplateColumn(
         verbose_name=_('Actions'),
         template_name='dashboard/catalogue/product_row_actions.html',
