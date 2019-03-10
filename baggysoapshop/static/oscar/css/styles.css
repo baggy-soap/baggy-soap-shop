@@ -9050,6 +9050,10 @@ input[type="number"][id*="quantity"] {
    color: #579393;   /* main-green */
 }
 
+.footer h2 {
+   color: #FFFFFF;
+}
+
 .footer .lead {
    font-size: 20px;
 }
@@ -9060,6 +9064,16 @@ input[type="number"][id*="quantity"] {
    margin-left: auto;
    padding-left: 15px;
    padding-right: 15px;
+}
+
+.footer ul {
+   list-style-type: none;
+   padding: 0;
+   margin: 0;
+}
+
+.footer ul a {
+   color: #FFFFFF;
 }
 
 /* Social media link styling */
