@@ -8354,6 +8354,9 @@ a:hover .thumbnail {
 .side_categories li ol {
   padding-left: 1.78571429em;
 }
+ .side_categories .nav > li > a {
+  padding: 0px;
+}
 .add-to-basket {
   width: 220px;
   margin-bottom: 0;
