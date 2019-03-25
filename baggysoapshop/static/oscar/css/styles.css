@@ -8354,6 +8354,9 @@ a:hover .thumbnail {
 .side_categories li ol {
   padding-left: 1.78571429em;
 }
+ .side_categories .nav > li > a {
+  padding: 0px;
+}
 .add-to-basket {
   width: 220px;
   margin-bottom: 0;
@@ -9050,6 +9053,10 @@ input[type="number"][id*="quantity"] {
    color: #579393;   /* main-green */
 }
 
+.footer h2 {
+   color: #FFFFFF;
+}
+
 .footer .lead {
    font-size: 20px;
 }
@@ -9060,6 +9067,16 @@ input[type="number"][id*="quantity"] {
    margin-left: auto;
    padding-left: 15px;
    padding-right: 15px;
+}
+
+.footer ul {
+   list-style-type: none;
+   padding: 0;
+   margin: 0;
+}
+
+.footer ul a {
+   color: #FFFFFF;
 }
 
 /* Social media link styling */
