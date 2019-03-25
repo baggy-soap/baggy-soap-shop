@@ -30,5 +30,5 @@ class RoyalMailInternationalStandard(methods.FixedPrice):
     """
     code = 'royal-mail-international-standard'
     name = _('Royal Mail International Standard (3 to 5 working days)')
-    charge_excl_tax = Decimal('3.85')
-    charge_incl_tax = Decimal('3.85')
+    charge_excl_tax = Decimal('4.00')
+    charge_incl_tax = Decimal('4.00')
