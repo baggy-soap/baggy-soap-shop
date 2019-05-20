@@ -15,7 +15,7 @@
         <div class="collapse navbar-collapse nav-accounts">
             <ul class="nav navbar-nav navbar-right">
                 <li><span>{% trans "Welcome" %} <em>{{ user.get_full_name|default:request.user.email }}</em></span></li>
-                <li><a href="{% url 'catalogue:index' %}"><i class="icon-home"></i> {% trans "Return to store" %}</a></li>
+                <li><a href="{{ homepage_url }}"><i class="icon-home"></i> {% trans "Return to store" %}</a></li>
                 <li><a href="{% url 'customer:summary' %}"><i class="icon-user"></i> {% trans "Account" %}</a></li>
                 <li><a href="{% url 'dashboard:logout' %}"><i class="icon-signout"></i> {% trans "Log out" %}</a></li>
             </ul>

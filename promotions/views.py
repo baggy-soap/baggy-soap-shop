@@ -1,5 +1,6 @@
-from oscar.apps.catalogue.views import CatalogueView
+from oscar.apps.promotions.views import HomeView as CoreHomeView
 
 
-class HomeView(CatalogueView):
+class HomeView(CoreHomeView):
     template_name = 'promotions/home.html'
+

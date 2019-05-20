@@ -34,7 +34,7 @@
             <ul class="nav navbar-nav navbar-right">
                 {% if user.is_authenticated %}
                 {% block nav_account_navbar_authenticated %}
-                    <li><a href="{% url 'catalogue:index' %}"><i class="icon-home"></i> {% trans "Shop" %}</a></li>
+                    <li><a href="{{ homepage_url }}"><i class="icon-home"></i> {% trans "Home" %}</a></li>
                     <li>
                         {% if num_unread_notifications > 0 %}
                             {# If user has new notifications - we change account link to go to inbox #}
@@ -53,7 +53,7 @@
                     <li><a id="logout_link" href="{% url 'customer:logout' %}"><i class="icon-signout"></i> {% trans "Logout" %}</a></li>
                 {% endblock %}
                 {% else %}
-                    <li><a href="{% url 'catalogue:index' %}"><i class="icon-home"></i> {% trans "Shop" %}</a></li>
+                    <li><a href="{{ homepage_url }}"><i class="icon-home"></i> {% trans "Home" %}</a></li>
                     <li><a id="login_link" href="{% url 'customer:login' %}"><i class="icon-signin"></i> {% trans "Login or register" %}</a></li>
                 {% endif %}
             </ul>
