@@ -19,7 +19,6 @@ from django.urls import include, path
 from oscar.app import application
 
 # from paypal.express.dashboard.app import application as paypal_application
-from baggysoapshop import views
 
 urlpatterns = [
     # The Django admin is not officially supported; expect breakage.
@@ -28,8 +27,6 @@ urlpatterns = [
 
     path('i18n/', include('django.conf.urls.i18n')),
     path('checkout/paypal/', include('paypal.express.urls')),
-
-    path('', views.index, name='index'),
 
     # TODO: Understand whether we need this and remove if not
     # # Optional

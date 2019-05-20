@@ -101,6 +101,7 @@ INSTALLED_APPS = [
     'dashboard',
     'dashboard.catalogue',
     'partner',
+    'promotions',
 ])
 
 SITE_ID = 1
