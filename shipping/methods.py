@@ -24,11 +24,21 @@ class RoyalMailLargeLetterFirstClass(methods.FixedPrice):
     charge_incl_tax = Decimal('1.50')
 
 
+class RoyalMailFlatRateFirstClass(methods.FixedPrice):
+    """
+    This is a fixed price shipping method, using Royal Mail 1st Class.
+    """
+    code = 'royal-mail-flat-rate-first-class'
+    name = _('Flat rate postage and packing (Royal Mail 1st Class)')
+    charge_excl_tax = Decimal('2.99')
+    charge_incl_tax = Decimal('2.99')
+
+
 class RoyalMailInternationalStandard(methods.FixedPrice):
     """
     This is fixed price shipping method, using Royal Mail International Standard.
     """
     code = 'royal-mail-international-standard'
     name = _('Royal Mail International Standard (3 to 5 working days)')
-    charge_excl_tax = Decimal('4.00')
-    charge_incl_tax = Decimal('4.00')
+    charge_excl_tax = Decimal('4.99')
+    charge_incl_tax = Decimal('4.99')

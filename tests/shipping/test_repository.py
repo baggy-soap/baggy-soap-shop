@@ -13,15 +13,15 @@ class RepositoryTest(TestCase):
         self.mock_basket = Mock()
         self.mock_basket.total_incl_tax = Decimal('5.99')
 
-    def test_get_available_shipping_methods_returns_royal_mail_large_letter_first_class_if_basket_lte_5(self):
+    def test_get_available_shipping_methods_returns_royal_mail_flat_rate_first_class_if_basket_lte_5(self):
         self.mock_basket.total_incl_tax = Decimal('5.00')
         shipping_methods = self.repository.get_available_shipping_methods(self.mock_basket)
-        self.assertIn(methods.RoyalMailLargeLetterFirstClass.code,
+        self.assertIn(methods.RoyalMailFlatRateFirstClass.code,
                       (shipping_method.code for shipping_method in shipping_methods))
 
-    def test_get_available_shipping_methods_returns_free_royal_mail_first_class_if_basket_gt_5(self):
+    def test_get_available_shipping_methods_returns_royal_mail_flat_rate_first_class_if_basket_gt_5(self):
         shipping_methods = self.repository.get_available_shipping_methods(self.mock_basket)
-        self.assertIn(methods.FreeRoyalMailFirstClass.code,
+        self.assertIn(methods.RoyalMailFlatRateFirstClass.code,
                       (shipping_method.code for shipping_method in shipping_methods))
 
     def test_get_available_shipping_methods_returns_royal_mail_intl_std_for_spain(self):
