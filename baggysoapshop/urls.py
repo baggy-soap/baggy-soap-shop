@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.conf import settings
 from django.contrib import admin
+from django.contrib.flatpages import views
 from django.urls import include, path
 from oscar.app import application
 
@@ -32,8 +33,14 @@ urlpatterns = [
     # # Optional
     # path('dashboard/paypal/express/', paypal_application.urls),
     path('', application.urls),
-]
 
+    path('about/', views.flatpage, {'url': '/about/'}, name='about'),
+    path('benefits/', views.flatpage, {'url': '/benefits/'}, name='benefits'),
+    path('delivery/', views.flatpage, {'url': '/delivery/'}, name='delivery'),
+    path('faq/', views.flatpage, {'url': '/faq/'}, name='faq'),
+    path('products/', views.flatpage, {'url': '/products/'}, name='products'),
+    path('contact/', views.flatpage, {'url': '/contact/'}, name='contact'),
+]
 
 if settings.DEBUG:
     from django.conf.urls.static import static
