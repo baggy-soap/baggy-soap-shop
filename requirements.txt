@@ -35,7 +35,7 @@ mock==2.0.0
 pbr==4.2.0
 phonenumbers==8.9.10
 phonenumberslite==8.9.10
-pillow==5.2.0
+pillow==6.2.0
 pip-tools==2.0.2
 psycopg2-binary==2.7.5
 purl==1.4
