@@ -1,5 +1,8 @@
-{% extends 'oscar/catalogue/browse.html' %}
+{% extends "layout_2_col.html" %}
+
+{% load basket_tags %}
 {% load category_tags %}
+{% load product_tags %}
 {% load range_tags %}
 {% load i18n %}
 
@@ -12,6 +15,9 @@
     </ul>
 {% endblock breadcrumbs %}
 
+{% block navigation %}
+    {% include "partials/nav_primary.html" %}
+{% endblock %}
 
 {% block column_left %}
     {% category_tree as tree_categories %}
@@ -63,3 +69,8 @@
         </div>
     {% endif %}
 {% endblock %}
+
+{% block header %}{% endblock %}
+
+{% block content %}
+{% endblock content %}

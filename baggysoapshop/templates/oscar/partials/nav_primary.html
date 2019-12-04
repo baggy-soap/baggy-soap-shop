@@ -1,5 +1,6 @@
 {% extends 'oscar/partials/nav_primary.html' %}
 {% load category_tags %}
+{% load range_tags %}
 {% load i18n %}
 
 {% block nav_dropdown %}
@@ -26,6 +27,13 @@
                                 {% for close in info.num_to_close %}
                                     </ul></li>
                                 {% endfor %}
+                    {% endfor %}
+                {% endif %}
+                <li class="divider"></li>
+                {% range_list as collections %}
+                {% if collections %}
+                    {% for collection in collections %}
+                        <li><a  tabindex="-1" href="{{ collection.get_absolute_url }}">{{ collection.name }}</a></li>
                     {% endfor %}
                 {% endif %}
                 <li class="divider"></li>
