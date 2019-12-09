@@ -34,11 +34,32 @@ class RoyalMailFlatRateFirstClass(methods.FixedPrice):
     charge_incl_tax = Decimal('2.99')
 
 
-class RoyalMailInternationalStandard(methods.FixedPrice):
+class RoyalMailInternationalStandardEurope(methods.FixedPrice):
     """
-    This is fixed price shipping method, using Royal Mail International Standard.
+    This is fixed price shipping method, using Royal Mail International Standard in Europe.
     """
-    code = 'royal-mail-international-standard'
-    name = _('Royal Mail International Standard (3 to 5 working days)')
+    code = 'royal-mail-international-standard-europe'
+    name = _('Royal Mail International Standard Europe (3 to 5 working days)')
     charge_excl_tax = Decimal('4.99')
     charge_incl_tax = Decimal('4.99')
+
+
+class RoyalMailInternationalStandardWorldZone1(methods.FixedPrice):
+    """
+    This is fixed price shipping method, using Royal Mail International Standard in World Zone 1.
+    """
+    code = 'royal-mail-international-standard-world-zone-1'
+    name = _('Royal Mail International Standard World Zone 1 (3 to 5 working days)')
+    charge_excl_tax = Decimal('6.99')
+    charge_incl_tax = Decimal('6.99')
+
+
+
+class RoyalMailInternationalStandardWorldZone2(methods.FixedPrice):
+    """
+    This is fixed price shipping method, using Royal Mail International Standard in World Zone 2.
+    """
+    code = 'royal-mail-international-standard-world-zone-1'
+    name = _('Royal Mail International Standard World Zone 2 (3 to 5 working days)')
+    charge_excl_tax = Decimal('7.99')
+    charge_incl_tax = Decimal('7.99')

@@ -28,5 +28,5 @@ class RepositoryTest(TestCase):
         address = Mock()
         address.country.code = 'ES'
         shipping_methods = self.repository.get_available_shipping_methods(self.mock_basket, shipping_addr=address)
-        self.assertIn(methods.RoyalMailInternationalStandard.code,
+        self.assertIn(methods.RoyalMailInternationalStandardEurope.code,
                       (shipping_method.code for shipping_method in shipping_methods))
