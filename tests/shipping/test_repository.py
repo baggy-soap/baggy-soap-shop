@@ -25,7 +25,7 @@ class RepositoryTest(TestCase):
                       (shipping_method.code for shipping_method in shipping_methods))
 
     def test_get_available_shipping_methods_returns_royal_mail_intl_std_for_europe(self):
-        country_codes = ['ES', 'FR', 'PT', 'NE']
+        country_codes = ['BE', 'DE', 'DK', 'ES', 'FI', 'FR', 'GR', 'NL', 'PT']
         address = Mock()
         for code in country_codes:
             address.country.code = code

@@ -49,7 +49,7 @@ class RoyalMailInternationalStandardWorldZone1(methods.FixedPrice):
     This is fixed price shipping method, using Royal Mail International Standard in World Zone 1.
     """
     code = 'royal-mail-international-standard-world-zone-1'
-    name = _('Royal Mail International Standard World Zone 1 (3 to 5 working days)')
+    name = _('Royal Mail International Standard World Zone 1 (6 to 7 working days)')
     charge_excl_tax = Decimal('6.99')
     charge_incl_tax = Decimal('6.99')
 
@@ -60,6 +60,6 @@ class RoyalMailInternationalStandardWorldZone2(methods.FixedPrice):
     This is fixed price shipping method, using Royal Mail International Standard in World Zone 2.
     """
     code = 'royal-mail-international-standard-world-zone-1'
-    name = _('Royal Mail International Standard World Zone 2 (3 to 5 working days)')
+    name = _('Royal Mail International Standard World Zone 2 (6 to 7 working days)')
     charge_excl_tax = Decimal('7.99')
     charge_incl_tax = Decimal('7.99')
