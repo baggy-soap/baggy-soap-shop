@@ -43,7 +43,7 @@ pycountry==18.5.26
 python-dateutil==2.7.3
 pytz==2018.5
 rcssmin==1.0.6
-requests==2.19.1          # via django-oscar-paypal
+requests==2.20.0          # via django-oscar-paypal
 rjsmin==1.0.12
 s3transfer==0.1.13        # via boto3
 six==1.11.0
