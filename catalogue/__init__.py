@@ -1,1 +1,1 @@
-default_app_config = 'catalogue.config.CatalogueConfig'
+default_app_config = 'catalogue.apps.CatalogueConfig'

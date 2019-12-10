@@ -15,7 +15,6 @@ import re
 
 import dj_database_url
 from oscar.defaults import *
-from oscar import OSCAR_MAIN_TEMPLATE_DIR, get_core_apps
 
 
 def read_env():
@@ -47,11 +46,12 @@ def bool_env(name, default=False):
     return False if value in ['False', 'false'] else bool(value)
 
 
-read_env()
+# Path helper
+def location(filename):
+    return os.path.join(os.path.dirname(os.path.realpath(__file__)), filename)
 
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+
+read_env()
 
 
 # Quick-start development settings - unsuitable for production
@@ -89,20 +89,50 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.flatpages',
-    'compressor',
-    'widget_tweaks',
-    'storages',
-    'paypal',
-] + get_core_apps([
-    'shipping',
+
     'catalogue',
     'checkout',
-    'order',
     'dashboard',
     'dashboard.catalogue',
+    'order',
     'partner',
-    'promotions',
-])
+    # 'promotions',
+    'shipping',
+
+    # Oscar's core apps
+    'oscar',
+    'oscar.apps.address',
+    'oscar.apps.analytics',
+    'oscar.apps.basket',
+    'oscar.apps.catalogue.reviews',
+    'oscar.apps.customer',
+    'oscar.apps.dashboard.communications',
+    'oscar.apps.dashboard.offers',
+    'oscar.apps.dashboard.orders',
+    'oscar.apps.dashboard.pages',
+    'oscar.apps.dashboard.partners',
+    'oscar.apps.dashboard.ranges',
+    'oscar.apps.dashboard.reports',
+    'oscar.apps.dashboard.reviews',
+    'oscar.apps.dashboard.shipping',
+    'oscar.apps.dashboard.users',
+    'oscar.apps.dashboard.vouchers',
+    'oscar.apps.offer',
+    'oscar.apps.payment',
+    'oscar.apps.search',
+    'oscar.apps.voucher',
+    'oscar.apps.wishlists',
+
+    # 3rd-party apps that oscar depends on
+    'widget_tweaks',
+    'haystack',
+    'treebeard',
+    'sorl.thumbnail',
+    'django_tables2',
+    'compressor',
+    'storages',
+    'paypal',
+]
 
 SITE_ID = 1
 
@@ -135,8 +165,9 @@ ROOT_URLCONF = 'baggysoapshop.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(PROJECT_ROOT, 'templates'),
-                 OSCAR_MAIN_TEMPLATE_DIR],
+        'DIRS': [
+            location('templates')
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -144,10 +175,11 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.template.context_processors.i18n',
+                'django.template.context_processors.media',
+                'django.template.context_processors.static',
                 'django.contrib.messages.context_processors.messages',
 
                 'oscar.apps.search.context_processors.search_form',
-                'oscar.apps.promotions.context_processors.promotions',
                 'oscar.apps.checkout.context_processors.checkout',
                 'oscar.apps.customer.notifications.context_processors.notifications',
                 'oscar.core.context_processors.metadata',
@@ -199,7 +231,7 @@ LOGGING = {
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': location('db.sqlite3'),
         'ATOMIC_REQUESTS': True,
     }
 }
@@ -250,11 +282,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 # The absolute path to the directory where collectstatic will collect static files for deployment.
-STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
+STATIC_ROOT = location('staticfiles')
 
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS = [os.path.join(PROJECT_ROOT, 'static')]
+STATICFILES_DIRS = [location('static')]
 
 # Simplified static file serving.
 # https://warehouse.python.org/project/whitenoise/
@@ -274,15 +306,13 @@ AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 
 MEDIAFILES_LOCATION = 'media'
 
-MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'media')
+MEDIA_ROOT = location('media')
 
 if ENVIRONMENT == 'development':
     MEDIA_URL = '/media/'
 else:
     DEFAULT_FILE_STORAGE = 'baggysoapshop.storage_backends.MediaStorage'
     MEDIA_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, MEDIAFILES_LOCATION)
-
-OSCAR_MISSING_IMAGE_URL = MEDIA_URL + 'image_not_found.jpg'
 
 OSCAR_INITIAL_ORDER_STATUS = 'Pending'
 OSCAR_INITIAL_LINE_STATUS = 'Pending'

@@ -1,1 +1,1 @@
-default_app_config = 'shipping.config.ShippingConfig'
+default_app_config = 'shipping.apps.ShippingConfig'

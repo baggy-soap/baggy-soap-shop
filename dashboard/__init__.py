@@ -1,1 +1,1 @@
-default_app_config = 'dashboard.config.DashboardConfig'
+default_app_config = 'dashboard.apps.DashboardConfig'

@@ -8,7 +8,8 @@ django-compressor
 django-extra-views
 django-haystack
 django-oscar
-django-oscar-paypal
+#django-oscar-paypal
+-e git+https://github.com/Arussil/django-oscar-paypal.git#egg=django-oscar-paypal
 django-phonenumber-field
 django-storages
 django-tables2

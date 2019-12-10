@@ -17,7 +17,8 @@ from django.conf import settings
 from django.contrib import admin
 from django.contrib.flatpages import views
 from django.urls import include, path
-from oscar.app import application
+from django.apps import apps
+
 
 # from paypal.express.dashboard.app import application as paypal_application
 
@@ -32,7 +33,8 @@ urlpatterns = [
     # TODO: Understand whether we need this and remove if not
     # # Optional
     # path('dashboard/paypal/express/', paypal_application.urls),
-    path('', application.urls),
+
+    path('', include(apps.get_app_config('oscar').urls[0])),
 
     path('about/', views.flatpage, {'url': '/about/'}, name='about'),
     path('benefits/', views.flatpage, {'url': '/benefits/'}, name='benefits'),
