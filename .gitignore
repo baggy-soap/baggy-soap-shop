@@ -5,6 +5,7 @@ staticfiles
 .DS_Store
 .cache
 .idea/
+/.idea/*
 .env
 
 # Database (this should not be required - should be using Postgres)
