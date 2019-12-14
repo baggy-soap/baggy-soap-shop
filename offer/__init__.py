@@ -1,1 +1,1 @@
-default_app_config = 'offer.config.OfferConfig'
+default_app_config = 'offer.apps.OfferConfig'
