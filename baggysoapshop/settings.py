@@ -183,6 +183,9 @@ TEMPLATES = [
                 'oscar.apps.customer.notifications.context_processors.notifications',
                 'oscar.core.context_processors.metadata',
             ],
+            'libraries': {
+                'range_tags': 'offer.templatetags.range_tags',
+            },
         },
     },
 ]
