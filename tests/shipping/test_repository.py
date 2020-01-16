@@ -24,6 +24,13 @@ class RepositoryTest(TestCase):
         self.assertIn(methods.RoyalMailFlatRateFirstClass.code,
                       (shipping_method.code for shipping_method in shipping_methods))
 
+    def test_get_available_shipping_methods_returns_royal_mail_flat_rate_first_class_for_uk(self):
+        address = Mock()
+        address.country.code = 'GB'
+        shipping_methods = self.repository.get_available_shipping_methods(self.mock_basket, shipping_addr=address)
+        self.assertIn(methods.RoyalMailFlatRateFirstClass.code,
+                      (shipping_method.code for shipping_method in shipping_methods))
+
     def test_get_available_shipping_methods_returns_royal_mail_intl_std_for_europe(self):
         country_codes = ['BE', 'DE', 'DK', 'ES', 'FI', 'FR', 'GR', 'NL', 'PT']
         address = Mock()
