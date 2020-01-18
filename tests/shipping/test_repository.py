@@ -1,9 +1,10 @@
 from decimal import Decimal
+
 from django.test import TestCase
 from mock import Mock
 
-from shipping import methods
-from shipping.repository import Repository
+from custom_apps.shipping import methods
+from custom_apps.shipping.repository import Repository
 
 
 class RepositoryTest(TestCase):
@@ -21,6 +22,13 @@ class RepositoryTest(TestCase):
 
     def test_get_available_shipping_methods_returns_royal_mail_flat_rate_first_class_if_basket_gt_5(self):
         shipping_methods = self.repository.get_available_shipping_methods(self.mock_basket)
+        self.assertIn(methods.RoyalMailFlatRateFirstClass.code,
+                      (shipping_method.code for shipping_method in shipping_methods))
+
+    def test_get_available_shipping_methods_returns_royal_mail_flat_rate_first_class_for_uk(self):
+        address = Mock()
+        address.country.code = 'GB'
+        shipping_methods = self.repository.get_available_shipping_methods(self.mock_basket, shipping_addr=address)
         self.assertIn(methods.RoyalMailFlatRateFirstClass.code,
                       (shipping_method.code for shipping_method in shipping_methods))
 

@@ -90,14 +90,13 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.flatpages',
 
-    'catalogue',
-    'checkout',
-    'dashboard',
-    'dashboard.catalogue',
-    'order',
-    'partner',
-    # 'promotions',
-    'shipping',
+    'custom_apps.catalogue',
+    'custom_apps.checkout',
+    'custom_apps.dashboard',
+    'custom_apps.dashboard.catalogue',
+    'custom_apps.order',
+    'custom_apps.partner',
+    'custom_apps.shipping',
 
     # Oscar's core apps
     'oscar',

@@ -1,7 +1,7 @@
 from django.test import TestCase
 from mock import Mock
 
-from order.processing import EventHandler
+from custom_apps.order.processing import EventHandler
 
 
 class EventHandlerTest(TestCase):

@@ -1,7 +1,7 @@
 from django.test import TestCase
 from oscar.apps.partner.models import StockRecord, Partner
 
-from catalogue.models import Product, ProductCategory, Category, ProductClass
+from custom_apps.catalogue.models import Product, Category, ProductClass, ProductCategory
 
 
 class ProductTest(TestCase):
