@@ -1,8 +1,9 @@
 from decimal import Decimal
+
 from django.test import TestCase
 
-from shipping.methods import (
-    RoyalMailInternationalStandardEurope, RoyalMailFlatRateFirstClass,
+from custom_apps.shipping.methods import (
+    RoyalMailFlatRateFirstClass, RoyalMailInternationalStandardEurope,
     RoyalMailInternationalStandardWorldZone1, RoyalMailInternationalStandardWorldZone2
 )
 

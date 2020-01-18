@@ -1,9 +1,10 @@
 from decimal import Decimal
+
 from django.test import TestCase
 from mock import Mock
 
-from shipping import methods
-from shipping.repository import Repository
+from custom_apps.shipping import methods
+from custom_apps.shipping.repository import Repository
 
 
 class RepositoryTest(TestCase):
