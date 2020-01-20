@@ -1,8 +1,11 @@
-Custom dashboard templates not working, for product:
+### Todo:
 
-```
-TypeError at /dashboard/catalogue/
-'NoneType' object is not subscriptable
-```
+* delete images from staging DB locally then retry
 
-It seems to be something to do with the product image... needs further investigation.
+
+### Production tasks 
+
+* Create collections
+* Create list of collection UPCs (no variants)
+* Add descriptions and products
+* Delete categories and reassign soaps and shampoos
