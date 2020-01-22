@@ -119,7 +119,7 @@
         {% endblock %}
     {% else %}
         {% block variants %}
-            <h2>{% trans 'Variants:' %}</h2>
+            <h2>{% trans 'Bag options:' %}</h2>
             {% for child in product.children.all %}
                 {% purchase_info_for_product request child as child_session %}
                 {% if child_session.availability.is_available_to_buy %}
