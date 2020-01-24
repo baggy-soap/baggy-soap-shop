@@ -19,7 +19,24 @@ class Product(AbstractProduct):
                    for stockrecord in self.stockrecords.all())
 
     def get_description(self):
+        """Return a product's description or it's parent's description if it is a child"""
         return self.parent.description if self.is_child else self.description
+
+    def get_full_title(self):
+        """Return a product's full title. For a child, this should be either a concatenation of it's parent's title
+        and it's own title, or just the parent's title if it has no title"""
+        title = self.title
+        if self.is_child:
+            title = "{} ({})".format(self.parent.title, self.title) if title else self.parent.title
+        return title
+
+    def __str__(self):
+        if self.title:
+            return self.get_full_title()
+        if self.attribute_summary:
+            return "%s (%s)" % (self.get_full_title(), self.attribute_summary)
+        else:
+            return self.get_full_title()
 
 
 from oscar.apps.catalogue.models import *
