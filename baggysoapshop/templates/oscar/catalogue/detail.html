@@ -81,7 +81,7 @@
     {% iffeature "reviews" %}
         <tr>
             <th>{% trans "Number of reviews" %}</th>
-            <td>{{ product.num_approved_reviews }}</td>
+            <td>{{ product.get_num_approved_reviews }}</td>
         </tr>
     {% endiffeature %}
 </table>
@@ -127,7 +127,7 @@
                 {% endif %}
             {% endfor %}
         {% else %}
-            <option value="product.parent.get_absolute_url">Please select</option>
+            <option value="{{ product.parent.get_absolute_url }}">Please select</option>
             {% for child in product.parent.children.all %}
                 {% purchase_info_for_product request child as child_session %}
                 {% if child_session.availability.is_available_to_buy %}
@@ -154,3 +154,43 @@
     <p>{{ product.get_description|safe }}</p>
     {% endif %}
 {% endblock %}
+
+{% block product_review %}
+<section>
+    <div id="reviews" class="sub-header">
+        {% if product.get_num_approved_reviews > 3 %}
+            {% if product.is_child %}
+                <a href="{% url 'catalogue:reviews-list' product_slug=product.parent.slug product_pk=product.parent.id %}" class="btn pull-right">{% trans "See all reviews" %}</a>
+            {% else %}
+                <a href="{% url 'catalogue:reviews-list' product_slug=product.slug product_pk=product.id %}" class="btn pull-right">{% trans "See all reviews" %}</a>
+            {% endif %}
+        {% endif %}
+        <h2>{% trans "Customer Reviews" %}</h2>
+    </div>
+
+    {% if product.get_num_approved_reviews == 0 %}
+        <p>
+            {% if product|is_review_permitted:user %}
+                {% if product.is_child %}
+                    {% url 'catalogue:reviews-add' product_slug=product.parent.slug product_pk=product.parent.id as add_review_url %}
+                {% else %}
+                    {% url 'catalogue:reviews-add' product_slug=product.slug product_pk=product.id as add_review_url %}
+                {% endif %}
+                    {% blocktrans %}This product does not have any reviews yet -
+                    <a href="{{ add_review_url }}#addreview">be the first to write one</a>.
+                {% endblocktrans %}
+            {% else %}
+                {% trans "This product does not have any reviews yet" %}.
+            {% endif %}
+        </p>
+    {% else %}
+        <ol class="list-unstyled review-list">
+            {% for review in product.get_reviews.approved.all|slice:":3" %}
+                <li>
+                {% include 'oscar/catalogue/partials/review.html' %}
+                </li>
+            {% endfor %}
+        </ol>
+    {% endif %}
+</section>
+{% endblock product_review %}

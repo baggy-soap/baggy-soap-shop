@@ -30,6 +30,18 @@ class Product(AbstractProduct):
             title = "{} ({})".format(self.parent.title, self.title) if title else self.parent.title
         return title
 
+    #TODO: Test
+    def get_rating(self):
+        return self.parent.rating if self.is_child else self.rating
+
+    # TODO: Test
+    def get_reviews(self):
+        return self.parent.reviews if self.is_child else self.reviews
+
+    # TODO: Test
+    def get_num_approved_reviews(self):
+        return self.parent.num_approved_reviews if self.is_child else self.num_approved_reviews
+
     def __str__(self):
         if self.title:
             return self.get_full_title()
