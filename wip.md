@@ -1,8 +1,3 @@
-### Todo:
-
-* delete images from staging DB locally then retry
-* push add-collections to staging and test
-
 ### Production tasks 
 
 * Create collections

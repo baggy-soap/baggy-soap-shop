@@ -6,7 +6,7 @@
 {% purchase_info_for_product request product as session %}
 
 {% if session.price.exists %}
-    {% if product.parent == None %}
+    {% if product.is_parent %}
         From
     {% endif %}
     {% if session.price.excl_tax == 0 %}
