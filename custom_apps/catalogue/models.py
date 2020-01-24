@@ -18,5 +18,8 @@ class Product(AbstractProduct):
         return sum(stockrecord.num_allocated if stockrecord.num_allocated else 0
                    for stockrecord in self.stockrecords.all())
 
+    def get_description(self):
+        return self.parent.description if self.is_child else self.description
+
 
 from oscar.apps.catalogue.models import *

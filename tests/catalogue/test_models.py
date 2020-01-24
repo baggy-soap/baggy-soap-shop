@@ -63,3 +63,12 @@ class ProductTest(TestCase):
         partner = Partner.objects.create()
         StockRecord.objects.create(product=self.product, partner=partner, num_in_stock=2)
         self.assertEqual(0, self.product.total_allocated)
+
+    def test_get_description_returns_description(self):
+        product = Product.objects.create(product_class=self.product_class, structure=Product.PARENT, description="Foo")
+        self.assertEqual(product.get_description(), product.description)
+
+    def test_get_description_for_child_gets_parents_description(self):
+        parent = Product.objects.create(product_class=self.product_class, structure=Product.PARENT, description="Foo")
+        child = Product.objects.create(parent=parent, structure=Product.CHILD)
+        self.assertEqual(child.get_description(), parent.description)
