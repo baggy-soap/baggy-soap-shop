@@ -10,25 +10,27 @@ class ProductTest(TestCase):
         self.product_class = ProductClass.objects.create(name='Toiletries')
         self.product = Product.objects.create(product_class=self.product_class)
 
-    def test_is_soap_product_returns_true_for_baggy_soap(self):
-        baggy_soap_category = Category.objects.create(name='Soap with Bag', depth=0)
+    def test_is_soap_product_returns_true_for_soap_product(self):
+        baggy_soap_category = Category.objects.create(name='Soap', depth=0)
         ProductCategory.objects.create(product=self.product, category=baggy_soap_category)
         self.assertTrue(self.product.is_soap_product)
 
-    def test_is_soap_product_returns_true_for_soap_refills(self):
-        soap_refills_category = Category.objects.create(name='Soap Refills', depth=0)
+    def test_is_soap_product_returns_true_for_soap_product_variant(self):
+        soap_refills_category = Category.objects.create(name='Soap', depth=0)
         ProductCategory.objects.create(product=self.product, category=soap_refills_category)
-        self.assertTrue(self.product.is_soap_product)
+        child = Product.objects.create(parent=self.product, structure=Product.CHILD)
+        self.assertTrue(child.is_soap_product)
 
-    def test_is_soap_product_returns_true_for_baggy_shampoo(self):
-        baggy_shampoo_category = Category.objects.create(name='Shampoo with Bag', depth=0)
+    def test_is_soap_product_returns_true_for_shampoo_product(self):
+        baggy_shampoo_category = Category.objects.create(name='Shampoo', depth=0)
         ProductCategory.objects.create(product=self.product, category=baggy_shampoo_category)
         self.assertTrue(self.product.is_soap_product)
 
-    def test_is_soap_product_returns_true_for_shampoo_refills(self):
-        shampoo_refills_category = Category.objects.create(name='Shampoo Refills', depth=0)
+    def test_is_soap_product_returns_true_for_shampoo_product_variant(self):
+        shampoo_refills_category = Category.objects.create(name='Shampoo', depth=0)
         ProductCategory.objects.create(product=self.product, category=shampoo_refills_category)
-        self.assertTrue(self.product.is_soap_product)
+        child = Product.objects.create(parent=self.product, structure=Product.CHILD)
+        self.assertTrue(child.is_soap_product)
 
     def test_is_soap_product_returns_false_for_hooks(self):
         hooks_category = Category.objects.create(name='Hooks', depth=0)

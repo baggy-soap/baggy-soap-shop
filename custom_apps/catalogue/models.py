@@ -5,8 +5,9 @@ class Product(AbstractProduct):
 
     @property
     def is_soap_product(self):
-        product_categories = set(category.name for category in self.categories.all())
-        soap_categories = {'Soap with Bag', 'Soap Refills', 'Shampoo with Bag', 'Shampoo Refills'}
+        product_categories = (set(category.name for category in self.parent.categories.all()) if self.is_child
+                              else set(category.name for category in self.categories.all()))
+        soap_categories = {'Soap', 'Shampoo'}
         return product_categories.intersection(soap_categories)
 
     @property
