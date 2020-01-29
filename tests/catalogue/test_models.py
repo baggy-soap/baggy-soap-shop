@@ -37,16 +37,16 @@ class ProductTest(TestCase):
         ProductCategory.objects.create(product=self.product, category=hooks_category)
         self.assertFalse(self.product.is_soap_product)
 
-    def test_has_stockrecords_for_product(self):
+    def test_has_stockrecords_available_for_product(self):
         partner = Partner.objects.create()
         StockRecord.objects.create(product=self.product, partner=partner, num_in_stock=2)
-        self.assertTrue(self.product.has_stockrecords)
+        self.assertTrue(self.product.has_stockrecords_available)
 
-    def test_has_stockrecords_for_child_product(self):
+    def test_has_stockrecords_available_for_child_product(self):
         child = Product.objects.create(parent=self.product, structure=Product.CHILD)
         partner = Partner.objects.create()
         StockRecord.objects.create(product=child, partner=partner, num_in_stock=2)
-        self.assertTrue(child.has_stockrecords)
+        self.assertTrue(child.has_stockrecords_available)
 
     def test_total_stock_count_for_single_record(self):
         partner = Partner.objects.create()

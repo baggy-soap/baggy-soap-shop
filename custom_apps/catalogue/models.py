@@ -11,7 +11,8 @@ class Product(AbstractProduct):
         return product_categories.intersection(soap_categories)
 
     @property
-    def has_stockrecords(self):
+    def has_stockrecords_available(self):
+        """Return True if product or child products have stockrecords"""
         return (any(child.stockrecords.exists() for child in self.children.all())
                 if self.is_parent else self.stockrecords.exists())
 
