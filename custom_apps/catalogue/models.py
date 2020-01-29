@@ -11,13 +11,23 @@ class Product(AbstractProduct):
         return product_categories.intersection(soap_categories)
 
     @property
+    def has_stockrecords(self):
+        return (any(child.stockrecords.exists() for child in self.children.all())
+                if self.is_parent else self.stockrecords.exists())
+
+    @property
     def total_stock_count(self):
-        return sum(stockrecord.num_in_stock for stockrecord in self.stockrecords.all())
+        return (sum(stockrecord.num_in_stock for child in self.children.all() for stockrecord in child.stockrecords.all())
+                if self.is_parent else sum(stockrecord.num_in_stock for stockrecord in self.stockrecords.all()))
 
     @property
     def total_allocated(self):
-        return sum(stockrecord.num_allocated if stockrecord.num_allocated else 0
-                   for stockrecord in self.stockrecords.all())
+        return (sum(stockrecord.num_allocated if stockrecord.num_allocated else 0
+                    for child in self.children.all()
+                    for stockrecord in child.stockrecords.all())
+                if self.is_parent else
+                sum(stockrecord.num_allocated if stockrecord.num_allocated else 0
+                    for stockrecord in self.stockrecords.all()))
 
     def get_description(self):
         """Return a product's description or it's parent's description if it is a child"""
@@ -31,15 +41,12 @@ class Product(AbstractProduct):
             title = "{} ({})".format(self.parent.title, self.title) if title else self.parent.title
         return title
 
-    #TODO: Test
     def get_rating(self):
         return self.parent.rating if self.is_child else self.rating
 
-    # TODO: Test
     def get_reviews(self):
         return self.parent.reviews if self.is_child else self.reviews
 
-    # TODO: Test
     def get_num_approved_reviews(self):
         return self.parent.num_approved_reviews if self.is_child else self.num_approved_reviews
 
