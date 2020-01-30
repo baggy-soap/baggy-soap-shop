@@ -14,23 +14,37 @@
     <li>
         <a href="{{ homepage_url }}">{% trans "Home" %}</a>
     </li>
-    {% with category=product.categories.all.0 %}
-        {% for c in category.get_ancestors_and_self %}
-        <li>
-            <a href="{{ c.get_absolute_url }}">{{ c.name }}</a>
-        </li>
-        {% endfor %}
-        <li class="active">{{ product.title }}</li>
-
-        {% get_back_button as backbutton %}
-        {% if backbutton %}
-            <li class="pull-right">
-                <a href="{{ backbutton.url }}">
-                    <i class="icon-arrow-left"></i> {{ backbutton.title }}
-                </a>
+    {% if product.parent == None %}
+        {% with category=product.categories.all.0 %}
+            {% for c in category.get_ancestors_and_self %}
+            <li>
+                <a href="{{ c.get_absolute_url }}">{{ c.name }}</a>
             </li>
-        {% endif %}
-    {% endwith %}
+            {% endfor %}
+            <li class="active">{{ product.title }}</li>
+        {% endwith %}
+    {% else %}
+        {% with category=product.parent.categories.all.0 %}
+            {% for c in category.get_ancestors_and_self %}
+            <li>
+                <a href="{{ c.get_absolute_url }}">{{ c.name }}</a>
+            </li>
+            {% endfor %}
+            <li>
+                <a href="{{ product.parent.get_absolute_url }}">{{ product.parent.title }}</a>
+            </li>
+            <li class="active">{{ product.title }}</li>
+        {% endwith %}
+    {% endif %}
+
+    {% get_back_button as backbutton %}
+    {% if backbutton %}
+        <li class="pull-right">
+            <a href="{{ backbutton.url }}">
+                <i class="icon-arrow-left"></i> {{ backbutton.title }}
+            </a>
+        </li>
+    {% endif %}
 </ul>
 {% endblock %}
 
@@ -67,8 +81,118 @@
     {% iffeature "reviews" %}
         <tr>
             <th>{% trans "Number of reviews" %}</th>
-            <td>{{ product.num_approved_reviews }}</td>
+            <td>{{ product.get_num_approved_reviews }}</td>
         </tr>
     {% endiffeature %}
 </table>
 {% endblock %}
+
+{% block product_main %}
+<div class="col-sm-6 product_main">
+    {% comment %}
+    This is a but clunky here.  Better to have some kind of JS-driven dashboard menu that
+    pops out when clicked.  A bit like the Django-Debug-Toolbar button
+    {% endcomment %}
+    {% if user.is_staff %}
+        <a class="pull-right hidden-xs" href="{% url 'dashboard:catalogue-product' pk=product.id %}"><small><i class="icon-edit"></i> {% trans "Edit this product" %}</small></a>
+    {% endif %}
+    <h1>{{ product.get_full_title }}</h1>
+
+    {% block product_stock_record %}
+        {% include "oscar/catalogue/partials/stock_record.html" with verbose=1 %}
+    {% endblock %}
+
+    {% iffeature "reviews" %}
+        {% include "oscar/catalogue/reviews/partials/review_stars.html" %}
+    {% endiffeature %}
+
+    <hr/>
+
+    {% if not product.is_parent %}
+        {% block product_basket_form %}
+            {% include "oscar/catalogue/partials/add_to_basket_form.html" %}
+        {% endblock %}
+    {% endif %}
+
+    {% if not product.is_standalone %}
+        {% block variants %}
+            <h2>{% trans 'Bag options:' %}</h2>
+            <select id="variant-selection" onchange="location = this.options[this.selectedIndex].value;">
+
+            {% if product.is_parent %}
+                <option value="#" selected="selected">Please select</option>
+                {% for child in product.children.all %}
+                    {% purchase_info_for_product request child as child_session %}
+                    {% if child_session.availability.is_available_to_buy %}
+                        <option value="{{ child.get_absolute_url }}">{{ child.get_title }}</option>
+                    {% endif %}
+                {% endfor %}
+            {% else %}
+                <option value="{{ product.parent.get_absolute_url }}">Please select</option>
+                {% for child in product.parent.children.all %}
+                    {% purchase_info_for_product request child as child_session %}
+                    {% if child_session.availability.is_available_to_buy %}
+                        {% if product.id == child.id %}
+                            <option value="{{ child.get_absolute_url }}" selected="selected">{{ child.get_title }}</option>
+                        {% else %}
+                            <option value="{{ child.get_absolute_url }}">{{ child.get_title }}</option>
+                        {% endif %}
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+
+            </select>
+        {% endblock %}
+    {% endif %}
+
+</div><!-- /col-sm-6 -->
+{% endblock %}
+
+{% block product_description %}
+    {% if product.get_description %}
+    <div id="product_description" class="sub-header">
+        <h2>{% trans "Product Description" %}</h2>
+    </div>
+    <p>{{ product.get_description|safe }}</p>
+    {% endif %}
+{% endblock %}
+
+{% block product_review %}
+<section>
+    <div id="reviews" class="sub-header">
+        {% if product.get_num_approved_reviews > 3 %}
+            {% if product.is_child %}
+                <a href="{% url 'catalogue:reviews-list' product_slug=product.parent.slug product_pk=product.parent.id %}" class="btn pull-right">{% trans "See all reviews" %}</a>
+            {% else %}
+                <a href="{% url 'catalogue:reviews-list' product_slug=product.slug product_pk=product.id %}" class="btn pull-right">{% trans "See all reviews" %}</a>
+            {% endif %}
+        {% endif %}
+        <h2>{% trans "Customer Reviews" %}</h2>
+    </div>
+
+    {% if product.get_num_approved_reviews == 0 %}
+        <p>
+            {% if product|is_review_permitted:user %}
+                {% if product.is_child %}
+                    {% url 'catalogue:reviews-add' product_slug=product.parent.slug product_pk=product.parent.id as add_review_url %}
+                {% else %}
+                    {% url 'catalogue:reviews-add' product_slug=product.slug product_pk=product.id as add_review_url %}
+                {% endif %}
+                    {% blocktrans %}This product does not have any reviews yet -
+                    <a href="{{ add_review_url }}#addreview">be the first to write one</a>.
+                {% endblocktrans %}
+            {% else %}
+                {% trans "This product does not have any reviews yet" %}.
+            {% endif %}
+        </p>
+    {% else %}
+        <ol class="list-unstyled review-list">
+            {% for review in product.get_reviews.approved.all|slice:":3" %}
+                <li>
+                {% include 'oscar/catalogue/partials/review.html' %}
+                </li>
+            {% endfor %}
+        </ol>
+    {% endif %}
+</section>
+{% endblock product_review %}
