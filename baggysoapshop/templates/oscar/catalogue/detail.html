@@ -114,34 +114,36 @@
         {% endblock %}
     {% endif %}
 
-    {% block variants %}
-        <h2>{% trans 'Bag options:' %}</h2>
-        <select id="variant-selection" onchange="location = this.options[this.selectedIndex].value;">
+    {% if not product.is_standalone %}
+        {% block variants %}
+            <h2>{% trans 'Bag options:' %}</h2>
+            <select id="variant-selection" onchange="location = this.options[this.selectedIndex].value;">
 
-        {% if product.is_parent %}
-            <option value="#" selected="selected">Please select</option>
-            {% for child in product.children.all %}
-                {% purchase_info_for_product request child as child_session %}
-                {% if child_session.availability.is_available_to_buy %}
-                    <option value="{{ child.get_absolute_url }}">{{ child.get_title }}</option>
-                {% endif %}
-            {% endfor %}
-        {% else %}
-            <option value="{{ product.parent.get_absolute_url }}">Please select</option>
-            {% for child in product.parent.children.all %}
-                {% purchase_info_for_product request child as child_session %}
-                {% if child_session.availability.is_available_to_buy %}
-                    {% if product.id == child.id %}
-                        <option value="{{ child.get_absolute_url }}" selected="selected">{{ child.get_title }}</option>
-                    {% else %}
+            {% if product.is_parent %}
+                <option value="#" selected="selected">Please select</option>
+                {% for child in product.children.all %}
+                    {% purchase_info_for_product request child as child_session %}
+                    {% if child_session.availability.is_available_to_buy %}
                         <option value="{{ child.get_absolute_url }}">{{ child.get_title }}</option>
                     {% endif %}
-                {% endif %}
-            {% endfor %}
-        {% endif %}
+                {% endfor %}
+            {% else %}
+                <option value="{{ product.parent.get_absolute_url }}">Please select</option>
+                {% for child in product.parent.children.all %}
+                    {% purchase_info_for_product request child as child_session %}
+                    {% if child_session.availability.is_available_to_buy %}
+                        {% if product.id == child.id %}
+                            <option value="{{ child.get_absolute_url }}" selected="selected">{{ child.get_title }}</option>
+                        {% else %}
+                            <option value="{{ child.get_absolute_url }}">{{ child.get_title }}</option>
+                        {% endif %}
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
 
-        </select>
-    {% endblock %}
+            </select>
+        {% endblock %}
+    {% endif %}
 
 </div><!-- /col-sm-6 -->
 {% endblock %}
