@@ -1,3 +1,14 @@
+### In progress:
+
+Migrations:
+* admin 0003
+* auth 0010
+* auth 0011
+
+Tips:
+- Update site for environment
+- Grant postgres permissions if migration fails
+
 ### TODO:
  
 * Display child products in dashboard products list (ProductListView.get_queryset)
