@@ -1,15 +1,13 @@
-django<2.1
-
 boto3
 Babel
 dj-database-url
+django
 django-appconf
 django-compressor
 django-extra-views
 django-haystack
 django-oscar
-#django-oscar-paypal
--e git+https://github.com/Arussil/django-oscar-paypal.git#egg=django-oscar-paypal
+django-oscar-paypal
 django-phonenumber-field
 django-storages
 django-tables2
