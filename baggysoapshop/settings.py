@@ -228,7 +228,7 @@ LOGGING = {
             'propagate': True
         },
         'django': {
-            'handlers': ['console', 'mail_admins'],
+            'handlers': ['console'],
             'level': os.getenv('DJANGO_LOG_LEVEL', 'ERROR'),
             'propagate': True,
         },
