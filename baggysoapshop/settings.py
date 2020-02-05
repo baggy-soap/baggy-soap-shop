@@ -346,3 +346,6 @@ EMAIL_USE_TLS = True
 
 NOSE_ARGS = ['--nocapture',
              '--nologcapture']
+
+SERVER_EMAIL = 'root@baggysoap.co.uk'
+ADMINS = [('Kate Mitchell', 'kate@baggysoap.co.uk'),]
