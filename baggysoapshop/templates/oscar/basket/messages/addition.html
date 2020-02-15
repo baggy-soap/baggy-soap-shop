@@ -1,11 +1,11 @@
 {% load i18n %}
 
 {% if quantity == 1 %}
-    {% blocktrans with title=product.get_full_title %}
+    {% blocktrans with title=product.full_title %}
     <strong>{{ title }}</strong> has been added to your basket.
     {% endblocktrans %}
 {% else %}
-    {% blocktrans with title=product.get_full_title quantity=quantity %}
+    {% blocktrans with title=product.full_title quantity=quantity %}
     <strong>{{ quantity }}</strong> copies of <strong>{{ title }}</strong>
     have been added to your basket.
     {% endblocktrans %}

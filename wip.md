@@ -1,7 +1,6 @@
 
 
-### TODO:
- 
-* Display child products in dashboard products list (ProductListView.get_queryset)
-* Display correct title for child products
-* Display child products underneath parent (sort by title by default?)
+### TODO
+
+* unit test for get_queryset
+* perhaps remove call to browsable_dashboard, and override of default?

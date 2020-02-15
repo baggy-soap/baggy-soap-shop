@@ -12,7 +12,7 @@ class ProductTable(tables.ProductTable):
     title = TemplateColumn(
         verbose_name=_('Title'),
         template_name='oscar/dashboard/catalogue/product_row_title.html',
-        order_by='title', accessor=A('title'))
+    accessor=A('full_title'))
     image = TemplateColumn(
         verbose_name=_('Image'),
         template_name='oscar/dashboard/catalogue/product_row_image.html',
@@ -50,4 +50,4 @@ class ProductTable(tables.ProductTable):
         fields = ('upc', 'date_updated')
         sequence = ('title', 'upc', 'image', 'product_class', 'variants',
                     'stock_records', 'num_in_stock', '...', 'date_updated', 'actions')
-        order_by = '-date_updated'
+        order_by = 'upc'
