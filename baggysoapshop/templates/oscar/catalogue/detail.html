@@ -96,7 +96,7 @@
     {% if user.is_staff %}
         <a class="pull-right hidden-xs" href="{% url 'dashboard:catalogue-product' pk=product.id %}"><small><i class="icon-edit"></i> {% trans "Edit this product" %}</small></a>
     {% endif %}
-    <h1>{{ product.get_full_title }}</h1>
+    <h1>{{ product.full_title }}</h1>
 
     {% block product_stock_record %}
         {% include "oscar/catalogue/partials/stock_record.html" with verbose=1 %}

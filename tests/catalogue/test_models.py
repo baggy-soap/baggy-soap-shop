@@ -110,19 +110,19 @@ class ProductTest(TestCase):
         child = Product.objects.create(parent=parent, structure=Product.CHILD)
         self.assertEqual(child.get_description(), parent.description)
 
-    def test_get_full_title_returns_product_title(self):
+    def test_full_title_returns_product_title(self):
         product = Product.objects.create(product_class=self.product_class, title="Lavender")
-        self.assertEqual(product.get_full_title(), product.title)
+        self.assertEqual(product.full_title, product.title)
 
-    def test_get_full_title_returns_parent_and_product_title_for_child(self):
+    def test_full_title_returns_parent_and_product_title_for_child(self):
         parent = Product.objects.create(product_class=self.product_class, title="Lavender")
         child = Product.objects.create(parent=parent, structure=Product.CHILD, title="Ocean Blue")
-        self.assertEqual(child.get_full_title(), "Lavender (Ocean Blue)")
+        self.assertEqual(child.full_title, "Lavender (Ocean Blue)")
 
-    def test_get_full_title_returns_parent_title_if_no_title(self):
+    def test_full_title_returns_parent_title_if_no_title(self):
         parent = Product.objects.create(product_class=self.product_class, title="Lavender")
         child = Product.objects.create(parent=parent, structure=Product.CHILD)
-        self.assertEqual(child.get_full_title(), "Lavender")
+        self.assertEqual(child.full_title, "Lavender")
 
     def test_get_rating_for_product(self):
         self.product.rating = 5

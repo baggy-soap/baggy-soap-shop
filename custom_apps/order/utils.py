@@ -25,7 +25,7 @@ class OrderCreator(utils.OrderCreator):
             'stockrecord': stockrecord,
             # Product details
             'product': product,
-            'title': product.get_full_title(),
+            'title': product.full_title,
             'upc': product.upc,
             'quantity': basket_line.quantity,
             # Price details
