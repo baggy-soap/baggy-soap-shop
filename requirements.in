@@ -6,6 +6,7 @@ django-appconf
 django-compressor
 django-extra-views
 django-haystack
+django-nose
 django-oscar
 django-oscar-paypal
 django-phonenumber-field

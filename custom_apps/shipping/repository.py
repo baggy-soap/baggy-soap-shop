@@ -1,18 +1,21 @@
 from oscar.apps.shipping import repository
-
-from custom_apps.shipping import methods
-
-#TODO: Verify this list against Royal Mail list and ensure they match
-EUROPE_CODES = ['AL', 'AD', 'AM', 'AT', 'BY', 'BE', 'BA', 'BG', 'CH', 'CY', 'CZ', 'DE',
-                'DK', 'EE', 'ES', 'FO', 'FI', 'FR', 'GE', 'GI', 'GR', 'HU', 'HR',
-                'IE', 'IS', 'IT', 'LI', 'LT', 'LU', 'LV', 'MC', 'MK', 'MT', 'NO', 'NL',
-                'PL', 'PT', 'RO', 'RU', 'SE', 'SI', 'SK', 'SM', 'TR', 'UA', 'VA']
+from custom_apps.shipping.models import WeightBased
 
 
 class Repository(repository.Repository):
 
     def get_available_shipping_methods(self, basket, user=None, shipping_addr=None, request=None, **kwargs):
-        shipping_methods = ((methods.RoyalMailInternationalStandardEurope(),)
-                            if shipping_addr and shipping_addr.country.code in EUROPE_CODES
-                            else (methods.RoyalMailFlatRateFirstClass(),))
+        def is_chargeable_method(method):
+            return method.calculate(basket).excl_tax > 0
+
+        if shipping_addr:
+            weightbased_set = WeightBased.objects.all().filter(countries=shipping_addr.country.code)
+
+            if weightbased_set:
+                shipping_methods = list(filter(is_chargeable_method, weightbased_set))
+            else:
+                shipping_methods = []
+        else:
+            shipping_methods = []
+
         return shipping_methods
