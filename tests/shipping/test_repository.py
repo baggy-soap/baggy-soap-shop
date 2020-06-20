@@ -24,7 +24,7 @@ class RepositoryTest(TestCase):
 
     def test_get_available_shipping_methods_returns_empty_list_if_no_shipping_address(self):
         shipping_methods = self.repository.get_available_shipping_methods(self.mock_basket)
-        self.assertEqual([], shipping_methods)
+        self.assertListEqual([], shipping_methods)
 
     def test_get_available_shipping_methods_returns_all_for_given_shipping_country(self):
         first_class_uk = WeightBased.objects.create(name="1st Class UK")
@@ -40,7 +40,8 @@ class RepositoryTest(TestCase):
         basket = Basket.objects.create()
         Line(basket=basket, product=self.product, quantity=1)
         shipping_methods = self.repository.get_available_shipping_methods(basket, shipping_addr=address)
-        self.assertEqual([first_class_uk, second_class_uk], shipping_methods)
+        # This is equivalent to assertItemsEqual in Python 2
+        self.assertCountEqual([first_class_uk, second_class_uk], shipping_methods)
 
     def test_get_available_shipping_methods_returns_empty_list_if_no_method_for_shipping_address(self):
         first_class_uk = WeightBased.objects.create(name="1st Class UK")
@@ -49,7 +50,7 @@ class RepositoryTest(TestCase):
         basket = Basket.objects.create()
         Line(basket=basket, product=self.product, quantity=1)
         shipping_methods = self.repository.get_available_shipping_methods(basket, shipping_addr=address)
-        self.assertEqual([], shipping_methods)
+        self.assertListEqual([], shipping_methods)
 
     def test_get_available_shipping_methods_returns_only_chargeable_methods(self):
         first_class_uk = WeightBased.objects.create(name="1st Class UK")
@@ -66,4 +67,20 @@ class RepositoryTest(TestCase):
         basket = Basket.objects.create()
         Line.objects.create(basket=basket, product=self.product, quantity=10, stockrecord=stockrecord)
         shipping_methods = self.repository.get_available_shipping_methods(basket, shipping_addr=address)
-        self.assertEqual([small_parcel_uk], shipping_methods)
+        self.assertListEqual([small_parcel_uk], shipping_methods)
+
+    def test_get_available_shipping_methods_returns_sorted_methods(self):
+        first_class = WeightBased.objects.create(name="1st Class")
+        first_class.countries.set([self.uk])
+        second_class = WeightBased.objects.create(name="2nd Class")
+        second_class.countries.set([self.uk])
+        small_parcel = WeightBased.objects.create(name="Small Parcel")
+        small_parcel.countries.set([self.uk])
+        WeightBand.objects.create(method=first_class, upper_limit=0.75, charge=2.99)
+        WeightBand.objects.create(method=second_class, upper_limit=0.75, charge=2.49)
+        WeightBand.objects.create(method=small_parcel, upper_limit=2.00, charge=3.99)
+        address = Mock(country=self.uk)
+        basket = Basket.objects.create()
+        Line(basket=basket, product=self.product, quantity=1)
+        shipping_methods = self.repository.get_available_shipping_methods(basket, shipping_addr=address)
+        self.assertListEqual([second_class, first_class, small_parcel], shipping_methods)
