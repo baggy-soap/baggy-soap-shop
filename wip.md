@@ -18,3 +18,7 @@ WIP:
 
 * Code pushed to staging
 * Weight attribute added on staging
+* Shipping methods being added on staging:
+  * Royal Mail 1st Class (Large Letter)
+  * Royal Mail 2nd Class (Large Letter)
+  * Royal Mail 1st Class (Small Parcel)
