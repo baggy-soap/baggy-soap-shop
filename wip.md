@@ -18,8 +18,3 @@ WIP:
 
 * Code pushed to staging
 * Weight attribute added on staging
-* Bug: can't view basket when no default address configured?
-  - need to default address when non 
-  - see todo in repository
-
-

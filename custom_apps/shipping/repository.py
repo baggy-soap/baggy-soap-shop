@@ -7,20 +7,17 @@ from custom_apps.shipping.models import WeightBased
 class Repository(repository.Repository):
 
     def get_available_shipping_methods(self, basket, user=None, shipping_addr=None, request=None, **kwargs):
-        if shipping_addr:
-            weightbased_dict = {method: method.calculate(basket).excl_tax
-                                for method in WeightBased.objects.all().filter(countries=shipping_addr.country.code)}
-            if weightbased_dict:
-                chargeable_methods_dict = {method: charge for method, charge in weightbased_dict.items() if charge > 0}
-                shipping_methods = sorted(chargeable_methods_dict, key=chargeable_methods_dict.get)
-            else:
-                shipping_methods = []
+        country_code = shipping_addr.country.code if shipping_addr else "GB"
+        weightbased_dict = {method: method.calculate(basket).excl_tax
+                            for method in WeightBased.objects.all().filter(countries=country_code)}
+        if weightbased_dict:
+            chargeable_methods_dict = {method: charge for method, charge in weightbased_dict.items() if charge > 0}
+            shipping_methods = sorted(chargeable_methods_dict, key=chargeable_methods_dict.get)
         else:
             shipping_methods = []
 
         return shipping_methods
 
-    #TODO: Test no error raised when shipping_addr is None (default to UK?)
     def get_default_shipping_method(self, basket, shipping_addr=None, **kwargs):
         """
         Return a 'default' shipping method to show on the basket page to give
