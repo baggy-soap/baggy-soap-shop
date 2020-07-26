@@ -14,11 +14,13 @@ TODO:
   * Add default weight of 0.1 to all methods
 * Edit "Delivery" page to explain shipping rates
 
+Development needed:
+* Display shipping method in orders list (dashboard)
+
 WIP:
 
 * Code pushed to staging
 * Weight attribute added on staging
 * Shipping methods being added on staging:
-  * Royal Mail 1st Class (Large Letter)
-  * Royal Mail 2nd Class (Large Letter)
-  * Royal Mail 1st Class (Small Parcel)
+  * currently working on International Standard methods
+  * use Django shell to copy country lists to new shipping methods

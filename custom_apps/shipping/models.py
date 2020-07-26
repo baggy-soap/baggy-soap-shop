@@ -10,6 +10,8 @@ class WeightBased(AbstractWeightBased):
     send_multiples = models.BooleanField(_("Send Multiples"), default=False,
                                          help_text="Send as multiple packages if the upper weight limit is exceeded")
 
+    package_count = 1
+
     def get_charge(self, weight):
         """
         Calculates shipping charges for a given weight.
@@ -42,6 +44,7 @@ class WeightBased(AbstractWeightBased):
             if not self.send_multiples:
                 return D('0.00')
             quotient, remaining_weight = divmod(weight, top_band.upper_limit)
+            self.package_count = quotient + int(bool(remaining_weight))
             if remaining_weight:
                 remainder_band = self.get_band_for_weight(remaining_weight)
                 return quotient * top_band.charge + remainder_band.charge

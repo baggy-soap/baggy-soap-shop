@@ -26,3 +26,12 @@ class WeightBasedTest(TestCase):
     def test_get_charge_does_not_return_double_charge_if_send_multiples_is_false(self):
         self.weight_based.send_multiples = False
         self.assertEqual(self.weight_based.get_charge(0.8), 0.00)
+
+    def test_package_count_returns_correct_value(self):
+        self.weight_based.send_multiples = True
+        self.weight_based.get_charge(0.1)
+        self.assertEqual(self.weight_based.package_count, 1)
+        self.weight_based.get_charge(0.8)
+        self.assertEqual(self.weight_based.package_count, 2)
+        self.weight_based.get_charge(1.55)
+        self.assertEqual(self.weight_based.package_count, 3)
