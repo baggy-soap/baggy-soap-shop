@@ -28,7 +28,7 @@
                             {% endblocktrans %}
                         </small>
                     {% endif %}
-                    {% if method.send_multiples and method.package_count %}
+                    {% if method.send_multiples and method.package_count > 1 %}
                         <small>
                             {% blocktrans with count=method.package_count %}
                                 This will be sent as <strong>{{ count }}</strong> packages.
