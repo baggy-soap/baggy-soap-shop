@@ -15,7 +15,7 @@ TODO:
 * Edit "Delivery" page to explain shipping rates
 
 Development needed:
-* Display shipping method in orders list (dashboard)
+* Display package count on last checkout screen? Perhaps also send in email?
 
 WIP:
 
@@ -24,3 +24,12 @@ WIP:
 * Shipping methods being added on staging:
   * currently working on International Standard methods
   * use Django shell to copy country lists to new shipping methods
+  
+  
+  
+Model changes: 
+
+Migrations for 'order':
+  custom_apps/order/migrations/0008_order_package_count.py
+    - Add field package_count to order
+
