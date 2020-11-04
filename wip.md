@@ -18,7 +18,7 @@ TODO:
 
 WIP:
 
-* Code pushed to staging
+* Push mgmt command code to staging
 * Weight attribute added on staging
 * Shipping methods being added on staging:
   * currently working on International Standard methods
