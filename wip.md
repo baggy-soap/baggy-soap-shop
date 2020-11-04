@@ -13,9 +13,8 @@ TODO:
 * Create shipping methods in dashboard
   * Add default weight of 0.1 to all methods
 * Edit "Delivery" page to explain shipping rates
-
-Development needed:
-* Display package count on last checkout screen? Perhaps also send in email?
+* Ensure all countries are set to shippable
+* Migrate (update to Order model)
 
 WIP:
 
@@ -23,7 +22,8 @@ WIP:
 * Weight attribute added on staging
 * Shipping methods being added on staging:
   * currently working on International Standard methods
-  * use Django shell to copy country lists to new shipping methods
+  * use Django shell to copy country lists to new shipping methods (including UK?) >> perhaps no longer needed with mgmt command
+  * need to set countries as shippable on staging >> could be done by mgmt command?
   
   
   
@@ -32,4 +32,3 @@ Model changes:
 Migrations for 'order':
   custom_apps/order/migrations/0008_order_package_count.py
     - Add field package_count to order
-
