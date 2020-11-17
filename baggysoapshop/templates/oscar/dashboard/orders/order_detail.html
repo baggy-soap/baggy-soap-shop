@@ -1,0 +1,53 @@
+{% extends 'oscar/dashboard/orders/order_detail.html' %}
+{% load i18n %}
+{% load currency_filters %}
+
+
+{% block tab_shipping %}
+    <div class="table-header">
+        <h3>{% trans "Shipping" %}</h3>
+    </div>
+    <table class="table table-striped table-bordered table-hover">
+        <tbody>
+            <tr>
+                <th>{% trans "Method name" %}</th>
+                <td>{{ order.shipping_method }}</td>
+            </tr>
+            <tr>
+                <th>{% trans "Method code" %}</th>
+                <td>{{ order.shipping_code|upper }}</td>
+            </tr>
+            <tr>
+                <th>{% trans "Package count" %}</th>
+                <td>{{ order.package_count }}</td>
+            </tr>
+            <tr>
+                <th>{% trans "Charge (incl tax)" %}</th>
+                <td>{{ order.shipping_incl_tax|currency:order.currency }}</td>
+            </tr>
+            <tr>
+                <th>{% trans "Charge (excl tax)" %}</th>
+                <td>{{ order.shipping_excl_tax|currency:order.currency }}</td>
+            </tr>
+            <tr>
+                <th>{% trans "Address" %}</th>
+                <td>
+                    {% for field in order.shipping_address.active_address_fields %}
+                        {{ field }}<br/>
+                    {% endfor %}
+                    <a class="btn btn-default" href="{% url 'dashboard:order-shipping-address' order.number %}">
+                        {% trans "Update" %}
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <th>{% trans "Phone" %}</th>
+                <td>{{ order.shipping_address.phone_number|default:"-" }}</td>
+            </tr>
+            <tr>
+                <th>{% trans "Instructions" %}</th>
+                <td>{{ order.shipping_address.notes|default:"-"|linebreaks }}</td>
+            </tr>
+        </tbody>
+    </table>
+{% endblock %}

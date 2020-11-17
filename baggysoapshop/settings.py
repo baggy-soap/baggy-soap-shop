@@ -94,6 +94,7 @@ INSTALLED_APPS = [
     'custom_apps.checkout',
     'custom_apps.dashboard',
     'custom_apps.dashboard.catalogue',
+    'custom_apps.dashboard.shipping',
     'custom_apps.offer',
     'custom_apps.order',
     'custom_apps.partner',
@@ -114,7 +115,6 @@ INSTALLED_APPS = [
     'oscar.apps.dashboard.ranges',
     'oscar.apps.dashboard.reports',
     'oscar.apps.dashboard.reviews',
-    'oscar.apps.dashboard.shipping',
     'oscar.apps.dashboard.users',
     'oscar.apps.dashboard.vouchers',
     'oscar.apps.payment',
@@ -364,6 +364,18 @@ OSCAR_FROM_EMAIL = 'noreply@baggysoap.co.uk'
 OSCAR_ALLOW_ANON_CHECKOUT = True
 OSCAR_ALLOW_ANON_REVIEWS = False
 
+OSCAR_DASHBOARD_NAVIGATION += [
+    {
+        'label': 'Shipping',
+        'children': [
+            {
+                'label': 'Shipping',
+                'url_name': 'dashboard:shipping-method-list',
+            },
+         ]
+    },
+]
+
 PAYPAL_API_USERNAME = os.environ.get('PAYPAL_API_USERNAME', '')
 PAYPAL_API_PASSWORD = os.environ.get('PAYPAL_API_PASSWORD', '')
 PAYPAL_API_SIGNATURE = os.environ.get('PAYPAL_API_SIGNATURE', '')
@@ -376,6 +388,8 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER', '')
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD', '')
 EMAIL_USE_TLS = True
+
+TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
 
 NOSE_ARGS = ['--nocapture',
              '--nologcapture']

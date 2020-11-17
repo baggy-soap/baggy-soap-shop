@@ -73,10 +73,21 @@
         </tr>
     {% endif %}
     {% for av in product.attribute_values.all %}
-        <tr>
-            <th>{{ av.attribute.name }}</th>
-            <td>{{ av.value_as_html }}</td>
-        </tr>
+        {% comment %}
+        This is a real hack to get the weight displaying in g instead of kg.
+        Please, if anyone knows of a better way, fix this asap!
+        {% endcomment %}
+        {% if av.attribute.name == "Weight (kg)" %}
+            <tr>
+                <th>Weight (g)</th>
+                <td>{% widthratio av.value 1 1000 %}</td>
+            </tr>
+        {% else %}
+            <tr>
+                <th>{{ av.attribute.name }}</th>
+                <td>{{ av.value_as_html }}</td>
+            </tr>
+        {% endif %}
     {% endfor %}
     {% iffeature "reviews" %}
         <tr>
