@@ -90,6 +90,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.flatpages',
 
+    'custom_apps.basket',
     'custom_apps.catalogue',
     'custom_apps.checkout',
     'custom_apps.dashboard',
@@ -104,7 +105,6 @@ INSTALLED_APPS = [
     'oscar',
     'oscar.apps.address',
     'oscar.apps.analytics',
-    'oscar.apps.basket',
     'oscar.apps.catalogue.reviews',
     'oscar.apps.customer',
     'oscar.apps.dashboard.communications',
