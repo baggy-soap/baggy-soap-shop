@@ -72,11 +72,31 @@
             <td>{{ session.availability.message }}</td>
         </tr>
     {% endif %}
+
+    {% if not product.is_parent %}
+        {% for av in product.parent.attribute_values.all %}
+            {% if av.attribute.name == "Weight (kg)" %}
+                <tr>
+                    <th>Weight (g)</th>
+                    <td>{% widthratio av.value 1 1000 %}</td>
+                </tr>
+            {% else %}
+                <tr>
+                    <th>{{ av.attribute.name }}</th>
+                    <td>{{ av.value_as_html }}</td>
+                </tr>
+            {% endif %}
+        {% endfor %}
+    {% endif %}    
+   
+
     {% for av in product.attribute_values.all %}
+
         {% comment %}
         This is a real hack to get the weight displaying in g instead of kg.
         Please, if anyone knows of a better way, fix this asap!
         {% endcomment %}
+        
         {% if av.attribute.name == "Weight (kg)" %}
             <tr>
                 <th>Weight (g)</th>
@@ -89,6 +109,7 @@
             </tr>
         {% endif %}
     {% endfor %}
+
     {% iffeature "reviews" %}
         <tr>
             <th>{% trans "Number of reviews" %}</th>
