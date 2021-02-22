@@ -7,7 +7,7 @@ staticfiles
 .idea/
 /.idea/*
 .env
-
+env
 # Database (this should not be required - should be using Postgres)
 db.sqlite3
 

@@ -15,6 +15,7 @@ import re
 
 import dj_database_url
 from oscar.defaults import *
+from django.utils.translation import ugettext_lazy as _
 
 
 def read_env():
@@ -74,6 +75,7 @@ ALLOWED_HOSTS = [
     '.baggysoap.co.uk',
     '.baggysoap.com',
     'localhost',
+    '127.0.0.1',
 ]
 
 
@@ -131,6 +133,7 @@ INSTALLED_APPS = [
     'compressor',
     'storages',
     'paypal',
+    'paypal.express.dashboard.apps.ExpressDashboardApplication',
 ]
 
 SITE_ID = 1
@@ -367,6 +370,7 @@ OSCAR_ALLOW_ANON_REVIEWS = False
 OSCAR_DASHBOARD_NAVIGATION += [
     {
         'label': 'Shipping',
+        'icon': 'fas fa-shipping-fast',
         'children': [
             {
                 'label': 'Shipping',
@@ -374,6 +378,16 @@ OSCAR_DASHBOARD_NAVIGATION += [
             },
          ]
     },
+    {
+        'label': _('PayPal'),
+        'icon': 'fab fa-paypal',
+        'children': [
+            {
+                'label': _('Express transactions'),
+                'url_name': 'express_dashboard:paypal-express-list',
+            },
+        ]
+    }
 ]
 
 PAYPAL_API_USERNAME = os.environ.get('PAYPAL_API_USERNAME', '')
