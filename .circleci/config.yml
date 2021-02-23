@@ -1,21 +1,29 @@
-version: 2.1
-
-orbs:
-  python: circleci/python@0.2.1
+version: 2
 
 jobs:
-  build-and-test:
-    executor: python/default
+  build:
+    working_directory: ~/python-ci
+
+    docker:
+      - image: circleci/python:3.8.8-buster
+
     steps:
       - checkout
-      - python/load-cache
-      - python/install-deps
-      - python/save-cache
       - run:
-          command: ./manage.py test
-          name: Test
+          name: Install python dependencies
+          command: |
+              sudo pip install -r requirements.txt
 
-workflows:
-  main:
-    jobs:
-      - build-and-test
+      - run:
+          name: Run tests
+          command: |
+              ./manage.py test
+      - store_test_results:
+          path: test-reports
+      - store_artifacts:
+          path: test-reports
+
+      - run:
+          name: Run pylint
+          command: |
+              pylint --output-format=colorized --load-plugins pylint_django --django-settings-module=baggysoapshop.settings baggysoapshop/ custom_apps/
