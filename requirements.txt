@@ -24,7 +24,7 @@ django-storages==1.8      # via -r requirements.in
 django-tables2==1.21.2    # via -r requirements.in, django-oscar
 django-treebeard==4.3     # via -r requirements.in, django-oscar
 django-widget-tweaks==1.4.5  # via -r requirements.in, django-oscar
-django==2.2.10            # via -r requirements.in, django-appconf, django-extra-views, django-haystack, django-localflavor, django-oscar, django-oscar-paypal, django-phonenumber-field, django-storages, django-tables2, django-treebeard
+django==2.2.13            # via -r requirements.in, django-appconf, django-extra-views, django-haystack, django-localflavor, django-oscar, django-oscar-paypal, django-phonenumber-field, django-storages, django-tables2, django-treebeard
 docutils==0.15.2          # via botocore
 factory-boy==2.12.0       # via -r requirements.in, django-oscar
 faker==3.0.0              # via -r requirements.in, factory-boy
