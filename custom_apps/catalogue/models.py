@@ -1,4 +1,3 @@
-from django.utils.functional import cached_property
 from oscar.apps.catalogue.abstract_models import AbstractProduct
 
 
@@ -19,7 +18,9 @@ class Product(AbstractProduct):
 
     @property
     def total_stock_count(self):
-        return (sum(stockrecord.num_in_stock for child in self.children.all() for stockrecord in child.stockrecords.all())
+        return (sum(stockrecord.num_in_stock
+                    for child in self.children.all()
+                    for stockrecord in child.stockrecords.all())
                 if self.is_parent else sum(stockrecord.num_in_stock for stockrecord in self.stockrecords.all()))
 
     @property
@@ -62,4 +63,4 @@ class Product(AbstractProduct):
             return self.full_title
 
 
-from oscar.apps.catalogue.models import *
+from oscar.apps.catalogue.models import * # noqa isort:skip pylint: disable=W0614, W0401

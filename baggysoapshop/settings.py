@@ -14,7 +14,7 @@ import os
 import re
 
 import dj_database_url
-from oscar.defaults import *
+from oscar.defaults import *    # pylint: disable=W0614, W0401
 
 
 def read_env():

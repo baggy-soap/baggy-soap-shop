@@ -51,4 +51,4 @@ class WeightBased(AbstractWeightBased):
             else:
                 return quotient * top_band.charge
 
-from oscar.apps.shipping.models import *  # noqa isort:skip
+from oscar.apps.shipping.models import *  # noqa isort:skip pylint: disable=W0614, W0401

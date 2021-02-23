@@ -9,4 +9,4 @@ class Order(AbstractOrder):
     package_count = models.PositiveSmallIntegerField(_("Package count"), default=1)
 
 
-from oscar.apps.order.models import *  # noqa isort:skip
+from oscar.apps.order.models import *  # noqa isort:skip pylint: disable=W0614, W0401
