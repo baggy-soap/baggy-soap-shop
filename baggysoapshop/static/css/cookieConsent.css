@@ -1,0 +1,60 @@
+/* -------------- Consent Cookie --------------*/
+
+#consent-popup{
+    visibility: visible;
+    position: fixed;
+    text-align: center;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 10000;
+    padding: 1rem;
+    color: white;
+    background-color: #000;
+    animation: fadeIn ease 1s;
+}
+
+@keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+}
+@-moz-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+}
+@-webkit-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+} 
+@-o-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+} 
+@-ms-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+}
+
+#consent-text{
+    font-size: 1.5rem!important;
+}
+
+#accept{
+    background-color: green;
+    padding: 2px;
+    margin-left: 10px;
+}
+
+#accept:hover{
+    background-color: gray;
+}
+
+.hidden{
+    visibility: hidden;
+    height: 0px;
+    width: 0px;
+}
+
+.terms_of_use{
+    color:lightskyblue;
+}

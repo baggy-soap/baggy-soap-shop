@@ -16,10 +16,27 @@
     <meta name="theme-color" content="#ffffff">
 {% endblock %}
 
+{% block gdpr %}
+   <!-- consent cookie banner-->
+   <div id="consent-popup" class="hidden">
+        <span id="consent-text">We use cookies to ensure that we give you the best experience on our website. By
+            clicking
+            Accept, you agree to our use of cookies and <a class="terms_of_use" href="{% url 'tandc' %}"> Terms of Use</a>
+            <a class="btn btn-success" id="accept" href="#">Accept</a>
+        </span>
+    </div>
+{% endblock %}
+
 {% block extrastyles %}
     <!-- FontAwesome CSS, for social media icons -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
     <!-- Custom fonts for this template -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/cookieConsent.css' %}">
+{% endblock %}
+
+{% block extrascripts%}
+{{ block.super }}
+    <script src="{% static 'js/cookieConsent.js' %}"></script>
 {% endblock %}
