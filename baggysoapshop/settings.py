@@ -29,13 +29,13 @@ def read_env():
         content = ''
 
     for line in content.splitlines():
-        m1 = re.match(r'\A([A-Za-z_0-9]+)=(.*)\Z', line)
+        m1 = re.match(r'\A([A-Za-z_0-9]+)=(.*)\Z', line)    # pylint: disable=C0103
         if m1:
             key, val = m1.group(1), m1.group(2)
-            m2 = re.match(r"\A'(.*)'\Z", val)
+            m2 = re.match(r"\A'(.*)'\Z", val)               # pylint: disable=C0103
             if m2:
                 val = m2.group(1)
-            m3 = re.match(r'\A"(.*)"\Z', val)
+            m3 = re.match(r'\A"(.*)"\Z', val)               # pylint: disable=C0103
             if m3:
                 val = re.sub(r'\\(.)', r'\1', m3.group(1))
             os.environ.setdefault(key, val)
@@ -198,7 +198,8 @@ LOGGING = {
     'disable_existing_loggers': False,
     'formatters': {
         'verbose': {
-            'format': '[%(asctime)s] %(name)s {%(module)s:%(lineno)d} %(process)d:%(thread)d %(levelname)5s - %(message)s'
+            'format': '[%(asctime)s] %(name)s {%(module)s:%(lineno)d} %(process)d:%(thread)d %(levelname)5s - '
+                      '%(message)s'
         },
         'simple': {
             'format': '[%(asctime)s] {%(module)s:%(lineno)d} %(levelname)5s - %(message)s'

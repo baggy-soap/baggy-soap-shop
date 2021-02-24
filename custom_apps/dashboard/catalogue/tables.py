@@ -1,26 +1,29 @@
 from oscar.apps.dashboard.catalogue import tables
+from oscar.core.loading import get_class, get_model
 
 from django_tables2 import A, Column, TemplateColumn
 from django.utils.translation import ugettext_lazy as _
-from oscar.core.loading import get_class, get_model
 
 DashboardTable = get_class('dashboard.tables', 'DashboardTable')
 Product = get_model('catalogue', 'Product')
 
 
-class ProductTable(tables.ProductTable):
+class ProductTable(tables.ProductTable):    # pylint: disable=R0903
     title = TemplateColumn(
         verbose_name=_('Title'),
         template_name='oscar/dashboard/catalogue/product_row_title.html',
-    accessor=A('full_title'))
+        accessor=A('full_title')
+    )
     image = TemplateColumn(
         verbose_name=_('Image'),
         template_name='oscar/dashboard/catalogue/product_row_image.html',
-        orderable=False)
+        orderable=False
+    )
     product_class = Column(
         verbose_name=_('Product type'),
         accessor=A('product_class'),
-        order_by='product_class__name',)
+        order_by='product_class__name'
+    )
     variants = TemplateColumn(
         verbose_name=_("Variants"),
         template_name='oscar/dashboard/catalogue/product_row_variants.html',
@@ -29,23 +32,27 @@ class ProductTable(tables.ProductTable):
     stock_records = TemplateColumn(
         verbose_name=_('Stock records'),
         template_name='oscar/dashboard/catalogue/product_row_stockrecords.html',
-        orderable=False)
+        orderable=False
+    )
     num_in_stock = TemplateColumn(
         verbose_name=_('Num in stock'),
         template_name='oscar/dashboard/catalogue/product_row_numinstock.html',
-        orderable=False)
+        orderable=False
+    )
     num_allocated = TemplateColumn(
         verbose_name=_('Num allocated'),
         template_name='oscar/dashboard/catalogue/product_row_numallocated.html',
-        orderable=False)
+        orderable=False
+    )
     actions = TemplateColumn(
         verbose_name=_('Actions'),
         template_name='oscar/dashboard/catalogue/product_row_actions.html',
-        orderable=False)
+        orderable=False
+    )
 
     icon = "sitemap"
 
-    class Meta(DashboardTable.Meta):
+    class Meta(DashboardTable.Meta):    # pylint: disable=R0903
         model = Product
         fields = ('upc', 'date_updated')
         sequence = ('title', 'upc', 'image', 'product_class', 'variants',

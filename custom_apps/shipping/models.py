@@ -40,15 +40,17 @@ class WeightBased(AbstractWeightBased):
         if weight <= top_band.upper_limit:
             band = self.get_band_for_weight(weight)
             return band.charge
-        else:
-            if not self.send_multiples:
-                return D('0.00')
-            quotient, remaining_weight = divmod(weight, top_band.upper_limit)
-            self.package_count = quotient + int(bool(remaining_weight))
-            if remaining_weight:
-                remainder_band = self.get_band_for_weight(remaining_weight)
-                return quotient * top_band.charge + remainder_band.charge
-            else:
-                return quotient * top_band.charge
 
-from oscar.apps.shipping.models import *  # noqa isort:skip pylint: disable=W0614, W0401
+        if not self.send_multiples:
+            return D('0.00')
+
+        quotient, remaining_weight = divmod(weight, top_band.upper_limit)
+        self.package_count = quotient + int(bool(remaining_weight))
+        if remaining_weight:
+            remainder_band = self.get_band_for_weight(remaining_weight)
+            return quotient * top_band.charge + remainder_band.charge
+
+        return quotient * top_band.charge
+
+
+from oscar.apps.shipping.models import *  # noqa isort:skip pylint: disable=W0614, W0401, C0413

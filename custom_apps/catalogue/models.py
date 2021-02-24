@@ -49,7 +49,7 @@ class Product(AbstractProduct):
         return self.parent.rating if self.is_child else self.rating
 
     def get_reviews(self):
-        return self.parent.reviews if self.is_child else self.reviews
+        return self.parent.reviews if self.is_child else self.reviews   # pylint: disable=E1101
 
     def get_num_approved_reviews(self):
         return self.parent.num_approved_reviews if self.is_child else self.num_approved_reviews
@@ -59,8 +59,7 @@ class Product(AbstractProduct):
             return self.full_title
         if self.attribute_summary:
             return "%s (%s)" % (self.full_title, self.attribute_summary)
-        else:
-            return self.full_title
+        return self.full_title
 
 
-from oscar.apps.catalogue.models import * # noqa isort:skip pylint: disable=W0614, W0401
+from oscar.apps.catalogue.models import * # noqa isort:skip pylint: disable=W0614, W0401, C0413
