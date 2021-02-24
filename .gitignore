@@ -17,5 +17,3 @@ db.sqlite3
 # Media files will be served from Amazon S3 on Heroku
 /baggysoapshop/media/
 /baggysoap.log
-
-holdingPen.txt
