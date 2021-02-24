@@ -30,12 +30,9 @@ urlpatterns = [
     path('i18n/', include('django.conf.urls.i18n')),
     path('checkout/paypal/', include('paypal.express.urls')),
     path('dashboard/paypal/express/', apps.get_app_config("express_dashboard").urls),
-    # TODO: Understand whether we need this and remove if not
-    # # Optional
-    # path('dashboard/paypal/express/', paypal_application.urls),
 
     path('', include(apps.get_app_config('oscar').urls[0])),
-
+    
     path('about/', views.flatpage, {'url': '/about/'}, name='about'),
     path('benefits/', views.flatpage, {'url': '/benefits/'}, name='benefits'),
     path('delivery/', views.flatpage, {'url': '/delivery/'}, name='delivery'),
