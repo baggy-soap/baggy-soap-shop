@@ -20,21 +20,21 @@ const consentPropertyName = 'Baggy_soap_shop_gdpr_consent';
 const shouldShowPopup = () => !cookieStorage.getItem(consentPropertyName);
 const saveToStorage = () => cookieStorage.setItem(consentPropertyName, true);
   
-window.onload = () =>{
-      const consentPopup = document.getElementById('consent-popup');
-      const acceptBtn = document.getElementById('accept');
-  
-      const acceptEvent = event => {
-          saveToStorage(cookieStorage);
-          consentPopup.classList.add('hidden');
-      };
-  
-      acceptBtn.addEventListener('click', acceptEvent);
-  
-      if (shouldShowPopup()) {
-          // waits 800ms before showing the modal.
-          setTimeout(() => {
-             consentPopup.classList.remove('hidden'); 
-          }, 500);
-      }
-};
+$(document).ready(function(){
+    const consentPopup = document.getElementById('consent-popup');
+    const acceptBtn = document.getElementById('accept');
+
+    const acceptEvent = event => {
+        saveToStorage(cookieStorage);
+        consentPopup.classList.add('hidden');
+    };
+
+    acceptBtn.addEventListener('click', acceptEvent);
+
+    if (shouldShowPopup()) {
+        // waits 800ms before showing the modal.
+        setTimeout(() => {
+           consentPopup.classList.remove('hidden'); 
+        }, 500);
+    }
+});
