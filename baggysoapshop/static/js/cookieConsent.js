@@ -1,4 +1,5 @@
 
+"use strict"
 // GDPR consent function checks and writes cookies to browser.
 const cookieStorage = {
     getItem: (key) =>{
@@ -27,9 +28,11 @@ $(document).ready(function(){
     const acceptEvent = event => {
         saveToStorage(cookieStorage);
         consentPopup.classList.add('hidden');
-    };
+    }
 
-    acceptBtn.addEventListener('click', acceptEvent);
+    if(acceptBtn){
+        acceptBtn.addEventListener('click', acceptEvent);
+    }
 
     if (shouldShowPopup()) {
         // waits 800ms before showing the modal.
