@@ -370,11 +370,11 @@ OSCAR_ALLOW_ANON_REVIEWS = False
 
 OSCAR_DASHBOARD_NAVIGATION += [
     {
-        'label': 'Shipping',
+        'label': _('Shipping'),
         'icon': 'fas fa-shipping-fast',
         'children': [
             {
-                'label': 'Shipping',
+                'label': _('Shipping methods'),
                 'url_name': 'dashboard:shipping-method-list',
             },
          ]
