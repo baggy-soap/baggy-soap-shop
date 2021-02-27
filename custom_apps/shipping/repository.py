@@ -6,7 +6,7 @@ from custom_apps.shipping.models import WeightBased
 
 class Repository(repository.Repository):
 
-    def get_available_shipping_methods(self, basket, user=None, shipping_addr=None, request=None, **kwargs):
+    def get_available_shipping_methods(self, basket, shipping_addr=None, **kwargs):
         country_code = shipping_addr.country.code if shipping_addr else "GB"
         weightbased_dict = {method: method.calculate(basket).excl_tax
                             for method in WeightBased.objects.all().filter(countries=country_code)}

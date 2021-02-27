@@ -1,8 +1,7 @@
-
 from oscar.apps.dashboard.catalogue import views
 
 
-class ProductListView(views.ProductListView):
+class ProductListView(views.ProductListView):   # pylint: disable=R0901
 
     def get_queryset(self):
         """

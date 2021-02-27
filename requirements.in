@@ -22,10 +22,12 @@ pbr
 phonenumbers
 phonenumberslite
 Pillow
-pip-tools
+pip-tools>=5.5.0
 psycopg2-binary
 purl
 pycountry
+pylint
+pylint-django
 python-dateutil
 pytz
 rcssmin
