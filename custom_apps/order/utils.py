@@ -14,7 +14,7 @@ class OrderCreator(utils.OrderCreator):
         Places the order by writing out the various models
         """
 
-    def place_order(self, basket, total,  # noqa (too complex (12))
+    def place_order(self, basket, total,  # noqa (too complex (12)) pylint: disable=R0913, R0914
                     shipping_method, shipping_charge, user=None,
                     shipping_address=None, billing_address=None,
                     order_number=None, status=None, request=None, **kwargs):
@@ -30,7 +30,7 @@ class OrderCreator(utils.OrderCreator):
         if not status and hasattr(settings, 'OSCAR_INITIAL_ORDER_STATUS'):
             status = getattr(settings, 'OSCAR_INITIAL_ORDER_STATUS')
 
-        if utils.Order._default_manager.filter(number=order_number).exists():
+        if utils.Order._default_manager.filter(number=order_number).exists():   # pylint: disable=W0212
             raise ValueError(_("There is already an order with number %s")
                              % order_number)
 
@@ -71,7 +71,7 @@ class OrderCreator(utils.OrderCreator):
 
         return order
 
-    def create_order_model(self, user, basket, shipping_address,
+    def create_order_model(self, user, basket, shipping_address,    # pylint: disable=R0913
                            shipping_method, shipping_charge, billing_address,
                            total, order_number, status, request=None, **extra_order_fields):
         """Create an order model."""
@@ -96,11 +96,10 @@ class OrderCreator(utils.OrderCreator):
         if extra_order_fields:
             order_data.update(extra_order_fields)
         if 'site' not in order_data:
-            order_data['site'] = Site._default_manager.get_current(request)
+            order_data['site'] = Site._default_manager.get_current(request)     # pylint: disable=W0212, E1101
         order = utils.Order(**order_data)
         order.save()
         return order
-
 
     def create_line_models(self, order, basket_line, extra_line_fields=None):
         """
@@ -153,7 +152,7 @@ class OrderCreator(utils.OrderCreator):
         if extra_line_fields:
             line_data.update(extra_line_fields)
 
-        order_line = utils.Line._default_manager.create(**line_data)
+        order_line = utils.Line._default_manager.create(**line_data)    # pylint: disable=W0212
         self.create_line_price_models(order, order_line, basket_line)
         self.create_line_attributes(order, order_line, basket_line)
         self.create_additional_line_models(order, order_line, basket_line)

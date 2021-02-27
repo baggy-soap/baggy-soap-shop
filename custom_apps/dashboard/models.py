@@ -1,1 +1,1 @@
-from oscar.apps.dashboard.models import *  # noqa isort:skip
+from oscar.apps.dashboard.models import *  # noqa isort:skip pylint: disable=W0401

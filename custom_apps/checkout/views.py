@@ -7,6 +7,10 @@ from oscar.apps.checkout import views
 
 class ShippingMethodView(views.ShippingMethodView):
 
+    def __init__(self):
+        super().__init__()
+        self._methods = None
+
     def get(self, request, *args, **kwargs):
         # These pre-conditions can't easily be factored out into the normal
         # pre-conditions as they do more than run a test and then raise an
@@ -36,4 +40,4 @@ class ShippingMethodView(views.ShippingMethodView):
 
         # We return a choice to the user, even if there is only one shipping method, in
         # order for them to be fully aware of the shipping method being used
-        return super(views.ShippingMethodView, self).get(request, *args, **kwargs)
+        return super().get(request, *args, **kwargs)
