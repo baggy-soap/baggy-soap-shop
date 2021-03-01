@@ -14,6 +14,14 @@
     <link rel="mask-icon" href="{% static 'favicon/safari-pinned-tab.svg' %}" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#00aba9">
     <meta name="theme-color" content="#ffffff">
+    <!-- consent cookie banner-->
+    <div id="consent-popup" class="hidden">
+        <span id="consent-text">We use cookies to ensure that we give you the best experience on our website. By
+            clicking
+            Accept, you agree to our use of cookies and <a class="terms_of_use" href="{% url 'tandc' %}"> Terms of Use</a>
+            <a class="btn btn-success" id="accept" href="#">Accept</a>
+        </span>
+    </div>
 {% endblock %}
 
 {% block extrastyles %}
@@ -22,4 +30,10 @@
     <!-- Custom fonts for this template -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/cookieConsent.css' %}">
+{% endblock %}
+
+{% block extrascripts %}
+{{ block.super }}
+    <script src="{% static 'js/cookieConsent.js' %}"></script>
 {% endblock %}

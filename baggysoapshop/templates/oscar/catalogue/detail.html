@@ -72,6 +72,28 @@
             <td>{{ session.availability.message }}</td>
         </tr>
     {% endif %}
+
+    {% comment %}
+    If the product has variants show the parent's weight
+    {% endcomment %}
+
+    {% if not product.is_parent %}
+        {% for av in product.parent.attribute_values.all %}
+            {% if av.attribute.name == "Weight (kg)" %}
+                <tr>
+                    <th>Weight (g)</th>
+                    <td>{% widthratio av.value 1 1000 %}g</td>
+                </tr>
+            {% else %}
+                <tr>
+                    <th>{{ av.attribute.name }}</th>
+                    <td>{{ av.value_as_html }}</td>
+                </tr>
+            {% endif %}
+        {% endfor %}
+    {% endif %}    
+   
+
     {% for av in product.attribute_values.all %}
         {% comment %}
         This is a real hack to get the weight displaying in g instead of kg.
@@ -80,7 +102,7 @@
         {% if av.attribute.name == "Weight (kg)" %}
             <tr>
                 <th>Weight (g)</th>
-                <td>{% widthratio av.value 1 1000 %}</td>
+                <td>{% widthratio av.value 1 1000 %}g</td>
             </tr>
         {% else %}
             <tr>
@@ -89,6 +111,7 @@
             </tr>
         {% endif %}
     {% endfor %}
+
     {% iffeature "reviews" %}
         <tr>
             <th>{% trans "Number of reviews" %}</th>

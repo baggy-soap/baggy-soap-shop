@@ -20,8 +20,6 @@ from django.urls import include, path
 from django.apps import apps
 
 
-# from paypal.express.dashboard.app import application as paypal_application
-
 urlpatterns = [
     # The Django admin is not officially supported; expect breakage.
     # Nonetheless, it's often useful for debugging.
@@ -29,10 +27,7 @@ urlpatterns = [
 
     path('i18n/', include('django.conf.urls.i18n')),
     path('checkout/paypal/', include('paypal.express.urls')),
-
-    # TODO: Understand whether we need this and remove if not
-    # # Optional
-    # path('dashboard/paypal/express/', paypal_application.urls),
+    path('dashboard/paypal/express/', apps.get_app_config("express_dashboard").urls),
 
     path('', include(apps.get_app_config('oscar').urls[0])),
 
@@ -42,6 +37,7 @@ urlpatterns = [
     path('faq/', views.flatpage, {'url': '/faq/'}, name='faq'),
     path('products/', views.flatpage, {'url': '/products/'}, name='products'),
     path('contact/', views.flatpage, {'url': '/contact/'}, name='contact'),
+    path('tandc/', views.flatpage, {'url': '/tandc/'}, name='tandc'),
 ]
 
 if settings.DEBUG:
