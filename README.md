@@ -1,59 +1,70 @@
 # Baggy Soap Shop Website Local Setup
 
 A brief setup to get the Baggy Soap Shop website running locally.
-Please note, this readme is written for Linux and needs updating if
+Please note, this readme is written for Linux and may need updating if
 you want to use a Mac.
 
 ## Requirements
 
-- Python (v3.6.x) / pip / virtualenv / virtualenvwrapper
+- Homebrew
+- Python (+ pip, pyenv, pyenv-virtualenv, virtualenvwrapper)
 - Postgres
 
 ## Installing requirements
 
-1) Install Python 3.6.4
+1) Install Homebrew
 
-```
-$ sudo apt-get install build-essential checkinstall
-$ sudo apt-get install libreadline-gplv2-dev libncursesw5-dev libssl-dev libsqlite3-dev tk-dev libgdbm-dev libc6-dev libbz2-dev
-$ cd /usr/src
-$ sudo wget https://www.python.org/ftp/python/3.6.4/Python-3.6.4.tgz
-$ sudo tar xzf Python-3.6.4.tgz
-$ cd Python-3.6.4
-$ sudo ./configure --enable-optimizations
-$ sudo make altinstall
+```shell
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
-2) Install virtualenvwrapper and make virtualenv
+2) Install pyenv and use this to install Python
 
-```
-$ sudo apt-get install python3-pip
-$ sudo pip3 install virtualenvwrapper
+```shell
+brew install pyenv
+pyenv install
 ```
 
-Add to .bashrc
+This will install the version specified for the project, found in the .python-version file.
 
+3) Install pyenv-virtualenv, pip and virtualenvwrapper
+
+```shell
+brew install pyenv-virtualenv
+sudo apt-get install python-pip
+sudo pip install virtualenvwrapper
 ```
+
+Add to .bash_profile
+
+```shell
 export WORKON_HOME=$HOME/.virtualenvs
-export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
-export VIRTUALENVWRAPPER_VIRTUALENV_ARGS=' -p /usr/bin/python3 '
 export PROJECT_HOME=$HOME/workspace
-source /usr/local/bin/virtualenvwrapper.sh
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+export PIP_VIRTUALENV_BASE=$WORKON_HOME
+export PIP_RESPECT_VIRTUALENV=true
+if [[ -r /usr/local/bin/virtualenvwrapper.sh ]]; then
+    source /usr/local/bin/virtualenvwrapper.sh
+else
+    echo "WARNING: Can't find virtualenvwrapper.sh"
+fi
 ```
 
 Reload shell startup file:
 
-```
-$ source ~/.bashrc
-```
-
-Make virtualenv:
-
-```
-$ mkvirtualenv --python=python3 baggy-soap
+```shell
+source ~/.bash_profile
 ```
 
-3) Set up PostgreSQL database
+(ensure this line is also in your .bash_rc file)
+
+4) Make virtualenv:
+
+```shell
+mkvirtualenv --python=`pyenv which python` baggy-soap
+```
+
+5) Set up PostgreSQL database
 
 Install new version: 
 
@@ -61,32 +72,32 @@ https://www.postgresql.org/download/linux/ubuntu/
 
 Create user and DB:
 
-```
-$ sudo su - postgres
-$ psql
+```shell
+sudo su - postgres
+psql
 # CREATE USER baggysoapdb WITH PASSWORD 'khAk8ZTguB4zS3';
 # CREATE DATABASE baggysoapshop;
 # GRANT ALL PRIVILEGES ON DATABASE baggysoapshop to baggysoapdb;
 # \q
-$ exit
+exit
 ```
 
 ## Installation
 
 To install this project, follow these steps:
 
-```
-$ git clone https://github.com/baggy-soap/baggy-soap-shop.git
-$ cd baggysoapshop/
-$ pip3 install -r requirements.txt
-$ cp .env.example .env
-$ python3 manage.py migrate
+```shell
+git clone https://github.com/baggy-soap/baggy-soap-shop.git
+cd baggysoapshop/
+pip install -r requirements.txt
+cp .env.example .env
+python manage.py migrate
 ```
 
 To create yourself as an admin user on the Django Oscar website, do the following:
 
-```
-$ python3 manage.py createsuperuser
+```shell
+python manage.py createsuperuser
 ```
 
 Choose a username and password, and use your baggysoap.co.uk email address.
@@ -96,9 +107,9 @@ Choose a username and password, and use your baggysoap.co.uk email address.
 Prior to running the server, you will need to update your .env file to contain the correct values for api keys and
 passwords, etc.
 
-```
-$ workon baggy-soap
-$ python3 manage.py runserver
+```shell
+workon baggy-soap
+python manage.py runserver
 ```
 
 Go to http://localhost:8000 to verify the website is running, 
