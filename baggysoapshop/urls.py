@@ -42,6 +42,7 @@ urlpatterns = [
     path('products/', views.flatpage, {'url': '/products/'}, name='products'),
     path('contact/', views.flatpage, {'url': '/contact/'}, name='contact'),
     path('tandc/', views.flatpage, {'url': '/tandc/'}, name='tandc'),
+    path('links/', views.flatpage, {'url': '/links/'}, name='links'),
 ]
 
 if settings.DEBUG:
