@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.conf import settings
 from django.contrib import admin
+from django.views.generic.base import TemplateView
 from django.contrib.flatpages import views
 from django.urls import include, path
 from django.apps import apps
@@ -26,7 +27,8 @@ urlpatterns = [
     # The Django admin is not officially supported; expect breakage.
     # Nonetheless, it's often useful for debugging.
     path('admin/', admin.site.urls),
-
+    path('robots.txt/', TemplateView.as_view(template_name="robots.txt", content_type="text/plain")),
+    path('sitemap.xml/', TemplateView.as_view(template_name="sitemap.xml", content_type="text/xml")),
     path('i18n/', include('django.conf.urls.i18n')),
     path('checkout/paypal/', include('paypal.express.urls')),
     path('dashboard/paypal/express/', apps.get_app_config("express_dashboard").urls),
