@@ -115,7 +115,7 @@ phonenumbers==8.11.0
     #   django-phonenumber-field
 phonenumberslite==8.11.0
     # via -r requirements.in
-pillow==6.2.1
+pillow==8.2.0
     # via
     #   -r requirements.in
     #   django-oscar
