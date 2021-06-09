@@ -65,7 +65,7 @@ django-widget-tweaks==1.4.5
     # via
     #   -r requirements.in
     #   django-oscar
-django==2.2.10
+django==2.2.22
     # via
     #   -r requirements.in
     #   django-appconf
